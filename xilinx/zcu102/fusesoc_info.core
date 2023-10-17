@@ -1,0 +1,18 @@
+CAPI=2:
+
+name: AFRL:utility:xilinx_zcu102_board:1.0.0
+description: Files to help generate base zcu102 board items
+
+filesets:
+  src:
+    files:
+      - zcu102_system_bd.tcl : {file_type: tclSource}
+      - zcu102_system_constr.xdc : {file_type : xdc}
+    
+  dep:
+    depend:
+      - AD:utility:ad_tcl_vivado_project:1.0.0
+
+targets:
+  default: &default
+    filesets: [src, dep]

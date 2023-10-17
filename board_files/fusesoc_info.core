@@ -1,0 +1,45 @@
+CAPI=2:
+
+name: AFRL:utility:vivado_board_support_packages:1.0.0
+description: Various files that describe AMD(Xilinx) based fpga boards
+
+filesets:
+  arty-a7-35-files:
+    files:
+      - arty-a7-35/E.0/part0_pins.xml : {copyto : ./board_files/arty-a7-35/E.0/}
+      - arty-a7-35/E.0/board.xml : {copyto : ./board_files/arty-a7-35/E.0/}
+      - arty-a7-35/E.0/preset.xml : {copyto : ./board_files/arty-a7-35/E.0/}
+
+  cmod-s7-25-files:
+    files:
+      - cmod-s7-25/B.0/part0_pins.xml : {copyto : ./board_files/cmod-s7-25/B.0/}
+      - cmod-s7-25/B.0/board.xml : {copyto : ./board_files/cmod-s7-25/B.0/}
+      - cmod-s7-25/B.0/preset.xml : {copyto : ./board_files/cmod-s7-25/B.0/}
+
+  zybo-files:
+    files:
+      - zybo/B.4/part0_pins.xml : {copyto : ./board_files/zybo/B.4/}
+      - zybo/B.4/board.xml : {copyto : ./board_files/zybo/B.4/}
+      - zybo/B.4/preset.xml : {copyto : ./board_files/zybo/B.4/}
+      - zybo/B.3/part0_pins.xml : {copyto : ./board_files/zybo/B.3/}
+      - zybo/B.3/board.xml : {copyto : ./board_files/zybo/B.3/}
+      - zybo/B.3/preset.xml : {copyto : ./board_files/zybo/B.3/}
+
+  nexys-a7-100t-files:
+    files:
+      - nexys-a7-100t/D.0/1.2/mig.prj : {copyto : ./board_files/nexys-a7-100t/D.0/1.2/}
+      - nexys-a7-100t/D.0/1.2/part0_pins.xml : {copyto : ./board_files/nexys-a7-100t/D.0/1.2/}
+      - nexys-a7-100t/D.0/1.2/board.xml : {copyto : ./board_files/nexys-a7-100t/D.0/1.2/}
+      - nexys-a7-100t/D.0/1.2/preset.xml : {copyto : ./board_files/nexys-a7-100t/D.0/1.2/}
+      - nexys-a7-100t/D.0/1.0/mig.prj : {copyto : ./board_files/nexys-a7-100t/D.0/1.0/}
+      - nexys-a7-100t/D.0/1.0/part0_pins.xml : {copyto : ./board_files/nexys-a7-100t/D.0/1.0/}
+      - nexys-a7-100t/D.0/1.0/board.xml : {copyto : ./board_files/nexys-a7-100t/D.0/1.0/}
+      - nexys-a7-100t/D.0/1.0/preset.xml : {copyto : ./board_files/nexys-a7-100t/D.0/1.0/}
+
+targets:
+  default:
+    default_tool: vivado
+    filesets: [arty-a7-35-files, cmod-s7-25-files, zybo-files, nexys-a7-100t-files]
+    tools:
+      vivado:
+        board_repo_paths: [./board_files/]

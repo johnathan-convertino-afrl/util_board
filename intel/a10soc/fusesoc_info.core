@@ -1,0 +1,20 @@
+CAPI=2:
+
+name: AFRL:utility:intel_a10soc_board:1.0.0
+description: Files to help generate base a10soc board items
+
+filesets:
+  src:
+    files:
+      - a10soc_system_assign.tcl  : {file_type: tclSource}
+      - a10soc_system_qsys.tcl : {file_type: tclSource}
+      - a10soc_pldd4_assign.tcl : {file_type: tclSource}
+      - a10soc_plddr4_dacfifo_qsys.tcl : {file_type: tclSource}
+    
+  dep:
+    depend:
+      - AD:utility:ad_tcl_quartus_project:1.0.0
+
+targets:
+  default: &default
+    filesets: [src, dep]

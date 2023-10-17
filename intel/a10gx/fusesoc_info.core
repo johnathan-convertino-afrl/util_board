@@ -1,0 +1,18 @@
+CAPI=2:
+
+name: AFRL:utility:intel_a10gx_board:1.0.0
+description: Files to help generate base a10gx board items
+
+filesets:
+  src:
+    files:
+      - a10gx_system_assign.tcl  : {file_type: tclSource}
+      - a10gx_system_qsys.tcl : {file_type: tclSource}
+
+  dep:
+    depend:
+      - AD:utility:ad_tcl_quartus_project:1.0.0
+
+targets:
+  default: &default
+    filesets: [src, dep]

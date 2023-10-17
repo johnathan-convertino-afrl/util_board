@@ -1,0 +1,20 @@
+CAPI=2:
+
+name: AFRL:utility:xilinx_kcu105_board:1.0.0
+description: Files to help generate base kcu105 board items
+
+filesets:
+  src:
+    files:
+      - kcu105_system_bd.tcl  : {file_type: tclSource}
+      - kcu105_system_mig.tcl : {file_type: tclSource}
+      - kcu105_system_constr.xdc : {file_type : xdc}
+      - kcu105_system_lutram_constr.xdc : {file_type : xdc}
+    
+  dep:
+    depend:
+      - AD:utility:ad_tcl_vivado_project:1.0.0
+
+targets:
+  default: &default
+    filesets: [src, dep]

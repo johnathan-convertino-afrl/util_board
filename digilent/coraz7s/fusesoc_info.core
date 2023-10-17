@@ -1,0 +1,19 @@
+CAPI=2:
+
+name: AFRL:utility:digilent_coraz7s_board:1.0.0
+description: Files to help generate base coraz7s board items
+
+filesets:
+  src:
+    files:
+      - coraz7s_system_bd.tcl  : {file_type: tclSource}
+      - coraz7s_system_ps7.tcl  : {file_type: tclSource}
+      - coraz7s_system_constr.xdc : {file_type : xdc}
+    
+  dep:
+    depend:
+      - AD:utility:ad_tcl_vivado_project:1.0.0
+
+targets:
+  default: &default
+    filesets: [src, dep]
