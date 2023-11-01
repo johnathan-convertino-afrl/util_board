@@ -36,10 +36,17 @@ filesets:
       - nexys-a7-100t/D.0/1.0/board.xml : {copyto : ./board_files/nexys-a7-100t/D.0/1.0/}
       - nexys-a7-100t/D.0/1.0/preset.xml : {copyto : ./board_files/nexys-a7-100t/D.0/1.0/}
 
+  zedboard-files:
+    files:
+      - zedboard/1.3/part0_pins.xml : {copyto : ./board_files/zedboard/1.3//}
+      - zedboard/1.3/board.xml : {copyto : ./board_files/zedboard/1.3/}
+      - zedboard/1.3/preset.xml : {copyto : ./board_files/zedboard/1.3/}
+      - zedboard/1.3/zed_board.jpg : {copyto : ./board_files/zedboard/1.3/}
+
 targets:
   default:
     default_tool: vivado
-    filesets: [arty-a7-35-files, cmod-s7-25-files, zybo-files, nexys-a7-100t-files]
+    filesets: [arty-a7-35-files, cmod-s7-25-files, zybo-files, nexys-a7-100t-files, zedboard-files]
     tools:
       vivado:
         board_repo_paths: [./board_files/]

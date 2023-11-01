@@ -1,17 +1,17 @@
 CAPI=2:
 
 name: AFRL:utility:digilent_zed_board:1.0.0
-description: Files to help generate base zed board items
+description: Files to help generate zed board base PS system.
 
 filesets:
   src:
     files:
-      - zed_system_bd.tcl : {file_type: tclSource}
+      - zed_system_base.tcl : {file_type: tclSource}
       - zed_system_constr.xdc : {file_type : xdc}
 
   dep:
     depend:
-      - AD:utility:ad_tcl_vivado_project:1.0.0
+      - AFRL:utility:tcl_version_check:1.0.0
 
 targets:
   default: &default
