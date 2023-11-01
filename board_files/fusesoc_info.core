@@ -16,15 +16,6 @@ filesets:
       - cmod-s7-25/B.0/board.xml : {copyto : ./board_files/cmod-s7-25/B.0/}
       - cmod-s7-25/B.0/preset.xml : {copyto : ./board_files/cmod-s7-25/B.0/}
 
-  zybo-files:
-    files:
-      - zybo/B.4/part0_pins.xml : {copyto : ./board_files/zybo/B.4/}
-      - zybo/B.4/board.xml : {copyto : ./board_files/zybo/B.4/}
-      - zybo/B.4/preset.xml : {copyto : ./board_files/zybo/B.4/}
-      - zybo/B.3/part0_pins.xml : {copyto : ./board_files/zybo/B.3/}
-      - zybo/B.3/board.xml : {copyto : ./board_files/zybo/B.3/}
-      - zybo/B.3/preset.xml : {copyto : ./board_files/zybo/B.3/}
-
   nexys-a7-100t-files:
     files:
       - nexys-a7-100t/D.0/1.2/mig.prj : {copyto : ./board_files/nexys-a7-100t/D.0/1.2/}
