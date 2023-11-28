@@ -6,8 +6,8 @@ description: Files to help generate zed board base PS system.
 filesets:
   src:
     files:
-      - zed_system_base.tcl : {file_type: tclSource}
       - zed_system_constr.xdc : {file_type : xdc}
+      - zed_system_base.tcl : {file_type: tclSource}
 
   dep:
     depend:

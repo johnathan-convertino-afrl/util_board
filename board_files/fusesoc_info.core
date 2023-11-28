@@ -37,7 +37,7 @@ filesets:
 targets:
   default:
     default_tool: vivado
-    filesets: [arty-a7-35-files, cmod-s7-25-files, zybo-files, nexys-a7-100t-files, zedboard-files]
+    filesets: [arty-a7-35-files, cmod-s7-25-files, nexys-a7-100t-files, zedboard-files]
     tools:
       vivado:
         board_repo_paths: [./board_files/]
