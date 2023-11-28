@@ -1,5 +1,7 @@
 # board basics
 
+# xhub::install [xhub::get_xitems avnet.com:xilinx_board_store:zedboard:1.4]
+
 set_msg_config -id "Common 17-55" -new_severity WARNING
 
 reorder_files -fileset constrs_1 -front [get_files zed_system_constr.xdc]
