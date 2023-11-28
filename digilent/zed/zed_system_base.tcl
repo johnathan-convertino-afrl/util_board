@@ -1,14 +1,8 @@
 # board basics
 
-# xhub::install [xhub::get_xitems avnet.com:xilinx_board_store:zedboard:1.4]
-
 set_msg_config -id "Common 17-55" -new_severity WARNING
 
 reorder_files -fileset constrs_1 -front [get_files zed_system_constr.xdc]
-
-# generate_target all [get_ips ps_sys_reset]
-
-# set_property generate_synth_checkpoint false [get_files ps_sys_reset.xci]
 
 #BD METHOD
 create_bd_design "system_ps"
@@ -30,7 +24,6 @@ set_property CONFIG.PCW_IRQ_F2P_INTR 1 [get_bd_cells ps_sys_7]
 set_property CONFIG.PCW_GPIO_EMIO_GPIO_ENABLE 1 [get_bd_cells ps_sys_7]
 set_property CONFIG.PCW_GPIO_EMIO_GPIO_IO 64 [get_bd_cells ps_sys_7]
 set_property CONFIG.PCW_IRQ_F2P_INTR 1 [get_bd_cells ps_sys_7]
-# set_property CONFIG.PCW_NUM_F2P_INTR_INPUTS 16 [get_bd_cells ps_sys_7]
 set_property CONFIG.PCW_IRQ_F2P_MODE REVERSE [get_bd_cells ps_sys_7]
 set_property CONFIG.PCW_SPI0_PERIPHERAL_ENABLE 1 [get_bd_cells ps_sys_7]
 set_property CONFIG.PCW_SPI0_SPI0_IO {EMIO} [get_bd_cells ps_sys_7]
@@ -43,7 +36,6 @@ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 ps_sys_reset
 set_property CONFIG.RESET_BOARD_INTERFACE Custom [get_bd_cells ps_sys_reset]
 set_property CONFIG.C_EXT_RST_WIDTH 1 [get_bd_cells ps_sys_reset]
 set_property CONFIG.C_AUX_RST_WIDTH 1 [get_bd_cells ps_sys_reset]
-
 
 vivado_ip_vlvn_version_check "xilinx.com:ip:xlconstant:1.1"
 
@@ -175,5 +167,7 @@ connect_bd_net [get_bd_pins /ps_sys_7/FCLK_CLK0] [get_bd_ports FCLK_CLK0]
 regenerate_bd_layout
 
 make_wrapper -files [get_files system_ps.bd] -top -import -fileset sources_1
+
+set_property synth_checkpoint_mode None [get_files system_ps.bd]
 
 update_compile_order -fileset sources_1

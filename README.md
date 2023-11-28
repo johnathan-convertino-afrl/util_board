@@ -30,3 +30,10 @@
   - intel
   - terasic
   - xilinx
+
+
+<!-- helpful info for installing board_files from new xhub tcl store -->
+<!--      enable_beta_device xcvm*
+    xhub::refresh_catalog [xhub::get_xstores xilinx_board_store]
+    xhub::install [xhub::get_xitems xilinx.com:xilinx_board_store:vmk180_es:*] -quiet
+    set_param board.repoPaths [get_property LOCAL_ROOT_DIR [xhub::get_xstores xilinx_board_store]]-->
