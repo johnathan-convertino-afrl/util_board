@@ -57,6 +57,8 @@ connect_bd_net [get_bd_pins ps_sys_7/FCLK_CLK0] [get_bd_pins ps_sys_reset/slowes
 connect_bd_net [get_bd_pins ps_sys_reset/dcm_locked] [get_bd_pins const_1/dout]
 connect_bd_net [get_bd_pins ps_sys_reset/aux_reset_in] [get_bd_pins const_1/dout]
 
+connect_bd_net [get_bd_pins const_0/dout] [get_bd_pins ps_sys_reset/mb_debug_sys_rst]
+
 #create ports
 make_bd_pins_external  [get_bd_pins ps_sys_reset/peripheral_aresetn]
 set_property name peripheral_aresetn [get_bd_ports peripheral_aresetn_0]
