@@ -1,5 +1,7 @@
 # create board base ips
 
+set_msg_config -id "Common 17-55" -new_severity WARNING
+
 vivado_ip_vlvn_version_check "xilinx.com:ip:clk_wiz:6.0"
 
 # create a pll clock IP with a 100 MHz clock
