@@ -46,15 +46,6 @@ set_property CONFIG.CONST_VAL {1} [get_bd_cells const_1]
 create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 const_0
 set_property CONFIG.CONST_VAL {0} [get_bd_cells const_0]
 
-#vivado_ip_vlvn_version_check "xilinx.com:ip:axi_iic:2.1"
-
-#create_bd_cell -type ip -vlnv xilinx.com:ip:axi_iic:2.1 axi_iic
-
-#vivado_ip_vlvn_version_check "xilinx.com:ip:axi_interconnect:2.1"
-
-#create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 axi_interconnect
-#set_property CONFIG.NUM_MI {1} [get_bd_cells axi_interconnect]
-
 connect_bd_net [get_bd_pins ps_sys_7/FCLK_RESET0_N] [get_bd_pins ps_sys_reset/ext_reset_in]
 connect_bd_net [get_bd_pins ps_sys_7/FCLK_CLK0] [get_bd_pins ps_sys_reset/slowest_sync_clk]
 
@@ -169,40 +160,7 @@ connect_bd_net [get_bd_pins /ps_sys_7/SPI1_SS2_O] [get_bd_ports SPI1_SS2_O]
 create_bd_port -dir O -type clk FCLK_CLK0
 connect_bd_net [get_bd_pins /ps_sys_7/FCLK_CLK0] [get_bd_ports FCLK_CLK0]
 
-#connect_bd_intf_net [get_bd_intf_pins ps_sys_7/M_AXI_GP1] -boundary_type upper [get_bd_intf_pins axi_interconnect/S00_AXI]
-
-#connect_bd_net [get_bd_pins ps_sys_7/M_AXI_GP1_ACLK] [get_bd_pins ps_sys_7/FCLK_CLK0]
-
-#connect_bd_net [get_bd_pins axi_interconnect/ACLK] [get_bd_pins ps_sys_7/FCLK_CLK0]
-
-#connect_bd_net [get_bd_pins axi_interconnect/ARESETN] [get_bd_pins ps_sys_reset/peripheral_aresetn]
-
-#connect_bd_net [get_bd_pins axi_interconnect/S00_ACLK] [get_bd_pins ps_sys_7/FCLK_CLK0]
-
-#connect_bd_net [get_bd_pins axi_interconnect/S00_ARESETN] [get_bd_pins ps_sys_reset/peripheral_aresetn]
-
-#connect_bd_net [get_bd_pins axi_interconnect/M00_ACLK] [get_bd_pins ps_sys_7/FCLK_CLK0]
-
-#connect_bd_net [get_bd_pins axi_interconnect/M00_ARESETN] [get_bd_pins ps_sys_reset/peripheral_aresetn]
-
-#connect_bd_intf_net [get_bd_intf_pins axi_iic/S_AXI] -boundary_type upper [get_bd_intf_pins axi_interconnect/M00_AXI]
-
-#connect_bd_net [get_bd_pins axi_iic/s_axi_aclk] [get_bd_pins ps_sys_7/FCLK_CLK0]
-
-#connect_bd_net [get_bd_pins axi_iic/s_axi_aresetn] [get_bd_pins ps_sys_reset/peripheral_aresetn]
-
-#create_bd_intf_port -mode Master -vlnv xilinx.com:interface:iic_rtl:1.0 iic_fmc
-
-#connect_bd_intf_net [get_bd_intf_pins axi_iic/IIC] [get_bd_intf_ports iic_fmc]
-
-#create_bd_port -dir O -type intr iic2intc_irpt
-
-#connect_bd_net [get_bd_pins /axi_iic/iic2intc_irpt] [get_bd_ports iic2intc_irpt]
-
 assign_bd_address
-
-#set_property range 4K [get_bd_addr_segs {ps_sys_7/Data/SEG_axi_iic_Reg}]
-#set_property offset 0x81620000 [get_bd_addr_segs {ps_sys_7/Data/SEG_axi_iic_Reg}]
 
 set_property offset 0x40000000 [get_bd_addr_segs {ps_sys_7/Data/SEG_M_AXI_GP0_Reg}]
 set_property range 1G [get_bd_addr_segs {ps_sys_7/Data/SEG_M_AXI_GP0_Reg}]
