@@ -2,7 +2,7 @@
 # constraints
 # hdmi
 
-if {[get_ports hdmi*] ne "" } {
+if {[get_ports -quiet hdmi*] ne "" } {
   set_property  -dict {PACKAGE_PIN  W18   IOSTANDARD LVCMOS33}           [get_ports hdmi_out_clk]
   set_property  -dict {PACKAGE_PIN  W17   IOSTANDARD LVCMOS33  IOB TRUE} [get_ports hdmi_vsync]
   set_property  -dict {PACKAGE_PIN  V17   IOSTANDARD LVCMOS33  IOB TRUE} [get_ports hdmi_hsync]
@@ -27,13 +27,13 @@ if {[get_ports hdmi*] ne "" } {
 
 #spdif
 
-if {[get_ports spdif] ne "" } {
+if {[get_ports -quiet spdif] ne "" } {
   set_property  -dict {PACKAGE_PIN  U15   IOSTANDARD LVCMOS33} [get_ports spdif]
 }
 
 #i2s
 
-if {[get_ports i2s*] ne "" } {
+if {[get_ports -quiet i2s*] ne "" } {
   set_property  -dict {PACKAGE_PIN  AB2   IOSTANDARD LVCMOS33} [get_ports i2s_mclk]
   set_property  -dict {PACKAGE_PIN  AA6   IOSTANDARD LVCMOS33} [get_ports i2s_bclk]
   set_property  -dict {PACKAGE_PIN  Y6    IOSTANDARD LVCMOS33} [get_ports i2s_lrclk]
@@ -41,7 +41,7 @@ if {[get_ports i2s*] ne "" } {
   set_property  -dict {PACKAGE_PIN  AA7   IOSTANDARD LVCMOS33} [get_ports i2s_sdata_in]
 }
 
-if {[get_ports iic_mux*] ne "" } {
+if {[get_ports -quiet iic_mux*] ne "" } {
   set_property  -dict {PACKAGE_PIN  AA18  IOSTANDARD LVCMOS33 PULLTYPE PULLUP} [get_ports iic_mux_scl[1]]
   set_property  -dict {PACKAGE_PIN  Y16   IOSTANDARD LVCMOS33 PULLTYPE PULLUP} [get_ports iic_mux_sda[1]]
   set_property  -dict {PACKAGE_PIN  AB4   IOSTANDARD LVCMOS33 PULLTYPE PULLUP} [get_ports iic_mux_scl[0]]
