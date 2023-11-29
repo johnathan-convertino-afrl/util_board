@@ -27,7 +27,7 @@ if {[get_ports hdmi*] ne "" } {
 
 #spdif
 
-if {[get_ports spdif] ne "" } (
+if {[get_ports spdif] ne "" } {
   set_property  -dict {PACKAGE_PIN  U15   IOSTANDARD LVCMOS33} [get_ports spdif]
 }
 
