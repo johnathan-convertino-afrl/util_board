@@ -21,7 +21,7 @@
 
 ### Dependencies
 #### Build
-  - AFRL:utility:tcl_version_check:1.0.0
+  - AFRL:utility:tcl_helper_check:1.0.0
 
 ### Folders
   - avnet

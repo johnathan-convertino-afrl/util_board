@@ -11,7 +11,7 @@ filesets:
 
   dep:
     depend:
-      - AFRL:utility:tcl_version_check:1.0.0
+      - AFRL:utility:tcl_helper_check:1.0.0
     
 targets:
   default: &default
