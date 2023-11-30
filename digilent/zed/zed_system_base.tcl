@@ -29,6 +29,9 @@ set_property CONFIG.PCW_SPI0_PERIPHERAL_ENABLE 1 [get_bd_cells ps_sys_7]
 set_property CONFIG.PCW_SPI0_SPI0_IO {EMIO} [get_bd_cells ps_sys_7]
 set_property CONFIG.PCW_SPI1_PERIPHERAL_ENABLE 1 [get_bd_cells ps_sys_7]
 set_property CONFIG.PCW_SPI1_SPI1_IO {EMIO} [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_QSPI_GRP_SINGLE_SS_ENABLE {1} [get_bd_cells ps_sys_7]
+set_property -quiet CONFIG.PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_2 {-0.009} [get_bd_cells ps_sys_7]
+set_property -quiet CONFIG.PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_3 {-0.061} [get_bd_cells ps_sys_7]
 #set_property CONFIG.PCW_USE_M_AXI_GP1 {1} [get_bd_cells ps_sys_7]
 
 vivado_ip_vlvn_version_check "xilinx.com:ip:proc_sys_reset:5.0"
@@ -38,21 +41,16 @@ set_property CONFIG.RESET_BOARD_INTERFACE Custom [get_bd_cells ps_sys_reset]
 set_property CONFIG.C_EXT_RST_WIDTH 1 [get_bd_cells ps_sys_reset]
 set_property CONFIG.C_AUX_RST_WIDTH 1 [get_bd_cells ps_sys_reset]
 
-vivado_ip_vlvn_version_check "xilinx.com:ip:xlconstant:1.1"
 
-create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 const_1
-set_property CONFIG.CONST_VAL {1} [get_bd_cells const_1]
+vivado_ip_vlvn_version_check "xilinx.com:ip:axi_interconnect:2.1"
 
-create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 const_0
-set_property CONFIG.CONST_VAL {0} [get_bd_cells const_0]
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 axi_interconnect
+set_property CONFIG.ENABLE_ADVANCED_OPTIONS {1} [get_bd_cells axi_interconnect]
+set_property CONFIG.XBAR_DATA_WIDTH.VALUE_SRC USER [get_bd_cells axi_interconnect]
+set_property CONFIG.NUM_MI {1} [get_bd_cells axi_interconnect]
 
 connect_bd_net [get_bd_pins ps_sys_7/FCLK_RESET0_N] [get_bd_pins ps_sys_reset/ext_reset_in]
 connect_bd_net [get_bd_pins ps_sys_7/FCLK_CLK0] [get_bd_pins ps_sys_reset/slowest_sync_clk]
-
-connect_bd_net [get_bd_pins ps_sys_reset/dcm_locked] [get_bd_pins const_1/dout]
-connect_bd_net [get_bd_pins ps_sys_reset/aux_reset_in] [get_bd_pins const_1/dout]
-
-connect_bd_net [get_bd_pins const_0/dout] [get_bd_pins ps_sys_reset/mb_debug_sys_rst]
 
 #create ports
 make_bd_pins_external  [get_bd_pins ps_sys_reset/peripheral_aresetn]
@@ -76,15 +74,15 @@ connect_bd_net [get_bd_pins /ps_sys_7/GPIO_T] [get_bd_ports GPIO_T]
 create_bd_intf_port -mode Master -vlnv xilinx.com:display_processing_system7:usbctrl_rtl:1.0 USB0
 connect_bd_intf_net [get_bd_intf_pins ps_sys_7/USBIND_0] [get_bd_intf_ports USB0]
 
-create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M_AXI_GP0
-set_property -dict [list CONFIG.PROTOCOL [get_property CONFIG.PROTOCOL [get_bd_intf_pins ps_sys_7/M_AXI_GP0]] CONFIG.HAS_REGION [get_property CONFIG.HAS_REGION [get_bd_intf_pins ps_sys_7/M_AXI_GP0]] CONFIG.NUM_READ_OUTSTANDING [get_property CONFIG.NUM_READ_OUTSTANDING [get_bd_intf_pins ps_sys_7/M_AXI_GP0]] CONFIG.NUM_WRITE_OUTSTANDING [get_property CONFIG.NUM_WRITE_OUTSTANDING [get_bd_intf_pins ps_sys_7/M_AXI_GP0]]] [get_bd_intf_ports M_AXI_GP0]
-connect_bd_intf_net [get_bd_intf_pins ps_sys_7/M_AXI_GP0] [get_bd_intf_ports M_AXI_GP0]
+# create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M_AXI_GP0
+# set_property -dict [list CONFIG.PROTOCOL [get_property CONFIG.PROTOCOL [get_bd_intf_pins ps_sys_7/M_AXI_GP0]] CONFIG.HAS_REGION [get_property CONFIG.HAS_REGION [get_bd_intf_pins ps_sys_7/M_AXI_GP0]] CONFIG.NUM_READ_OUTSTANDING [get_property CONFIG.NUM_READ_OUTSTANDING [get_bd_intf_pins ps_sys_7/M_AXI_GP0]] CONFIG.NUM_WRITE_OUTSTANDING [get_property CONFIG.NUM_WRITE_OUTSTANDING [get_bd_intf_pins ps_sys_7/M_AXI_GP0]]] [get_bd_intf_ports M_AXI_GP0]
+# connect_bd_intf_net [get_bd_intf_pins ps_sys_7/M_AXI_GP0] [get_bd_intf_ports M_AXI_GP0]
 
 create_bd_port -dir O -type clk FCLK_CLK1
 connect_bd_net [get_bd_pins /ps_sys_7/FCLK_CLK1] [get_bd_ports FCLK_CLK1]
 
-create_bd_port -dir I -type clk -freq_hz 100000000 M_AXI_GP0_ACLK
-connect_bd_net [get_bd_pins /ps_sys_7/M_AXI_GP0_ACLK] [get_bd_ports M_AXI_GP0_ACLK]
+# create_bd_port -dir I -type clk -freq_hz 100000000 M_AXI_GP0_ACLK
+# connect_bd_net [get_bd_pins /ps_sys_7/M_AXI_GP0_ACLK] [get_bd_ports M_AXI_GP0_ACLK]
 
 create_bd_port -dir I -type clk -freq_hz 100000000 S_AXI_HP0_ACLK
 connect_bd_net [get_bd_pins /ps_sys_7/S_AXI_HP0_ACLK] [get_bd_ports S_AXI_HP0_ACLK]
@@ -160,10 +158,41 @@ connect_bd_net [get_bd_pins /ps_sys_7/SPI1_SS2_O] [get_bd_ports SPI1_SS2_O]
 create_bd_port -dir O -type clk FCLK_CLK0
 connect_bd_net [get_bd_pins /ps_sys_7/FCLK_CLK0] [get_bd_ports FCLK_CLK0]
 
+connect_bd_net [get_bd_pins ps_sys_7/FCLK_CLK0] [get_bd_pins axi_interconnect/ACLK]
+
+connect_bd_net [get_bd_pins axi_interconnect/S00_ACLK] [get_bd_pins ps_sys_7/FCLK_CLK0]
+
+connect_bd_net [get_bd_pins axi_interconnect/M00_ACLK] [get_bd_pins ps_sys_7/FCLK_CLK0]
+
+connect_bd_net [get_bd_pins ps_sys_7/M_AXI_GP0_ACLK] [get_bd_pins ps_sys_7/FCLK_CLK0]
+
+connect_bd_net [get_bd_pins axi_interconnect/M00_ARESETN] [get_bd_pins ps_sys_reset/peripheral_aresetn]
+
+connect_bd_net [get_bd_pins axi_interconnect/S00_ARESETN] [get_bd_pins ps_sys_reset/peripheral_aresetn]
+
+connect_bd_net [get_bd_pins axi_interconnect/ARESETN] [get_bd_pins ps_sys_reset/peripheral_aresetn]
+
+connect_bd_intf_net [get_bd_intf_pins ps_sys_7/M_AXI_GP0] -boundary_type upper [get_bd_intf_pins axi_interconnect/S00_AXI]
+
+create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M_AXI
+
+set_property CONFIG.PROTOCOL [get_property CONFIG.PROTOCOL [get_bd_intf_pins ps_sys_7/M_AXI_GP0]] [get_bd_intf_ports M_AXI]
+set_property CONFIG.HAS_REGION [get_property CONFIG.HAS_REGION [get_bd_intf_pins ps_sys_7/M_AXI_GP0]] [get_bd_intf_ports M_AXI]
+set_property CONFIG.NUM_READ_OUTSTANDING [get_property CONFIG.NUM_READ_OUTSTANDING [get_bd_intf_pins ps_sys_7/M_AXI_GP0]] [get_bd_intf_ports M_AXI]
+set_property CONFIG.NUM_WRITE_OUTSTANDING [get_property CONFIG.NUM_WRITE_OUTSTANDING [get_bd_intf_pins ps_sys_7/M_AXI_GP0]] [get_bd_intf_ports M_AXI]
+
+connect_bd_intf_net [get_bd_intf_pins axi_interconnect/M00_AXI] [get_bd_intf_ports M_AXI]
+
+set_property CONFIG.ASSOCIATED_BUSIF {M_AXI} [get_bd_ports /FCLK_CLK0]
+
+set_property CONFIG.PROTOCOL AXI4LITE [get_bd_intf_ports /M_AXI]
+
 assign_bd_address
 
-set_property offset 0x40000000 [get_bd_addr_segs {ps_sys_7/Data/SEG_M_AXI_GP0_Reg}]
-set_property range 1G [get_bd_addr_segs {ps_sys_7/Data/SEG_M_AXI_GP0_Reg}]
+# delete_bd_objs [get_bd_addr_segs ps_sys_7/Data/SEG_M_AXI_Reg]
+
+set_property offset 0x40000000 [get_bd_addr_segs {ps_sys_7/Data/SEG_M_AXI_Reg}]
+set_property range 1G [get_bd_addr_segs {ps_sys_7/Data/SEG_M_AXI_Reg}]
 
 regenerate_bd_layout
 
