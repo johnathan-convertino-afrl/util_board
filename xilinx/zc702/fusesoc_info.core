@@ -6,12 +6,12 @@ description: Files to help generate base zc702 board items
 filesets:
   src:
     files:
-      - zc702_system_bd.tcl  : {file_type: tclSource}
-      - zc702_system_constr.xdc : {file_type : xdc}
+      - zc702_system_base.tcl  : {file_type: tclSource}
+      - zc702_system_constr.tcl : {file_type : SDC}
 
   dep:
     depend:
-      - AD:utility:ad_tcl_vivado_project:1.0.0
+      - AFRL:utility:tcl_helper_check:1.0.0
     
 targets:
   default: &default

@@ -6,16 +6,16 @@ description: Files to help generate base zc706 board items
 filesets:
   src:
     files:
-      - zc706_system_bd.tcl : {file_type: tclSource}
-      - zc706_plddr3_adcfifo_bd.tcl : {file_type: tclSource}
-      - zc706_plddr3_dacfifo_bd.tcl : {file_type: tclSource}
-      - zc706_plddr3_mig.prj : {file_type: prj}
-      - zc706_system_constr.xdc : {file_type : xdc}
-      - zc706_plddr3_constr.xdc : {file_type : xdc}
+      - zc706_system_base.tcl : {file_type: tclSource}
+      # - zc706_plddr3_adcfifo_bd.tcl : {file_type: tclSource}
+      # - zc706_plddr3_dacfifo_bd.tcl : {file_type: tclSource}
+      # - zc706_plddr3_mig.prj : {file_type: prj}
+      - zc706_system_constr.tcl : {file_type : SDC}
+      # - zc706_plddr3_constr.xdc : {file_type : xdc}
     
   dep:
     depend:
-      - AD:utility:ad_tcl_vivado_project:1.0.0
+      - AFRL:utility:tcl_helper_check:1.0.0
 
 targets:
   default: &default
