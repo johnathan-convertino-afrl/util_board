@@ -32,6 +32,7 @@ set_property CONFIG.PCW_SPI1_SPI1_IO {EMIO} [get_bd_cells ps_sys_7]
 set_property CONFIG.PCW_QSPI_GRP_SINGLE_SS_ENABLE {1} [get_bd_cells ps_sys_7]
 set_property -quiet CONFIG.PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_2 {-0.009} [get_bd_cells ps_sys_7]
 set_property -quiet CONFIG.PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_3 {-0.061} [get_bd_cells ps_sys_7]
+
 #set_property CONFIG.PCW_USE_M_AXI_GP1 {1} [get_bd_cells ps_sys_7]
 
 vivado_ip_vlvn_version_check "xilinx.com:ip:proc_sys_reset:5.0"
@@ -90,6 +91,11 @@ connect_bd_net [get_bd_pins /ps_sys_7/S_AXI_HP0_ACLK] [get_bd_ports S_AXI_HP0_AC
 create_bd_port -dir I -type clk -freq_hz 100000000 S_AXI_HP1_ACLK
 connect_bd_net [get_bd_pins /ps_sys_7/S_AXI_HP1_ACLK] [get_bd_ports S_AXI_HP1_ACLK]
 
+
+# set_property CONFIG.ASSOCIATED_BUSIF {S_AXI_HP0} [get_bd_ports /FCLK_CLK0]
+#
+# set_property CONFIG.ASSOCIATED_BUSIF {S_AXI_HP1} [get_bd_ports /FCLK_CLK0]
+
 create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:aximm_rtl:1.0 S_AXI_HP1
 set_property -dict [list CONFIG.DATA_WIDTH [get_property CONFIG.DATA_WIDTH [get_bd_intf_pins ps_sys_7/S_AXI_HP1]] CONFIG.PROTOCOL [get_property CONFIG.PROTOCOL [get_bd_intf_pins ps_sys_7/S_AXI_HP1]] CONFIG.ID_WIDTH [get_property CONFIG.ID_WIDTH [get_bd_intf_pins ps_sys_7/S_AXI_HP1]] CONFIG.HAS_REGION [get_property CONFIG.HAS_REGION [get_bd_intf_pins ps_sys_7/S_AXI_HP1]] CONFIG.NUM_READ_OUTSTANDING [get_property CONFIG.NUM_READ_OUTSTANDING [get_bd_intf_pins ps_sys_7/S_AXI_HP1]] CONFIG.NUM_WRITE_OUTSTANDING [get_property CONFIG.NUM_WRITE_OUTSTANDING [get_bd_intf_pins ps_sys_7/S_AXI_HP1]] CONFIG.MAX_BURST_LENGTH [get_property CONFIG.MAX_BURST_LENGTH [get_bd_intf_pins ps_sys_7/S_AXI_HP1]]] [get_bd_intf_ports S_AXI_HP1]
 connect_bd_intf_net [get_bd_intf_pins ps_sys_7/S_AXI_HP1] [get_bd_intf_ports S_AXI_HP1]
@@ -97,6 +103,10 @@ connect_bd_intf_net [get_bd_intf_pins ps_sys_7/S_AXI_HP1] [get_bd_intf_ports S_A
 create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:aximm_rtl:1.0 S_AXI_HP0
 set_property -dict [list CONFIG.DATA_WIDTH [get_property CONFIG.DATA_WIDTH [get_bd_intf_pins ps_sys_7/S_AXI_HP0]] CONFIG.PROTOCOL [get_property CONFIG.PROTOCOL [get_bd_intf_pins ps_sys_7/S_AXI_HP0]] CONFIG.ID_WIDTH [get_property CONFIG.ID_WIDTH [get_bd_intf_pins ps_sys_7/S_AXI_HP0]] CONFIG.HAS_REGION [get_property CONFIG.HAS_REGION [get_bd_intf_pins ps_sys_7/S_AXI_HP0]] CONFIG.NUM_READ_OUTSTANDING [get_property CONFIG.NUM_READ_OUTSTANDING [get_bd_intf_pins ps_sys_7/S_AXI_HP0]] CONFIG.NUM_WRITE_OUTSTANDING [get_property CONFIG.NUM_WRITE_OUTSTANDING [get_bd_intf_pins ps_sys_7/S_AXI_HP0]] CONFIG.MAX_BURST_LENGTH [get_property CONFIG.MAX_BURST_LENGTH [get_bd_intf_pins ps_sys_7/S_AXI_HP0]]] [get_bd_intf_ports S_AXI_HP0]
 connect_bd_intf_net [get_bd_intf_pins ps_sys_7/S_AXI_HP0] [get_bd_intf_ports S_AXI_HP0]
+
+set_property CONFIG.SUPPORTS_NARROW_BURST 0 [get_bd_intf_ports /S_AXI_HP0]
+
+set_property CONFIG.SUPPORTS_NARROW_BURST 0 [get_bd_intf_ports /S_AXI_HP1]
 
 create_bd_port -dir I -from 15 -to 0 -type intr IRQ_F2P
 connect_bd_net [get_bd_pins /ps_sys_7/IRQ_F2P] [get_bd_ports IRQ_F2P]
@@ -181,15 +191,17 @@ set_property CONFIG.HAS_REGION [get_property CONFIG.HAS_REGION [get_bd_intf_pins
 set_property CONFIG.NUM_READ_OUTSTANDING [get_property CONFIG.NUM_READ_OUTSTANDING [get_bd_intf_pins ps_sys_7/M_AXI_GP0]] [get_bd_intf_ports M_AXI]
 set_property CONFIG.NUM_WRITE_OUTSTANDING [get_property CONFIG.NUM_WRITE_OUTSTANDING [get_bd_intf_pins ps_sys_7/M_AXI_GP0]] [get_bd_intf_ports M_AXI]
 
+set_property CONFIG.PROTOCOL AXI4LITE [get_bd_intf_ports /M_AXI]
+
+# connect_bd_net [get_bd_pins ps_sys_7/S_AXI_HP0_ACLK] [get_bd_pins ps_sys_7/FCLK_CLK0]
+#
+# connect_bd_net [get_bd_pins ps_sys_7/S_AXI_HP1_ACLK] [get_bd_pins ps_sys_7/FCLK_CLK0]
+
 connect_bd_intf_net [get_bd_intf_pins axi_interconnect/M00_AXI] [get_bd_intf_ports M_AXI]
 
 set_property CONFIG.ASSOCIATED_BUSIF {M_AXI} [get_bd_ports /FCLK_CLK0]
 
-set_property CONFIG.PROTOCOL AXI4LITE [get_bd_intf_ports /M_AXI]
-
 assign_bd_address
-
-# delete_bd_objs [get_bd_addr_segs ps_sys_7/Data/SEG_M_AXI_Reg]
 
 set_property offset 0x40000000 [get_bd_addr_segs {ps_sys_7/Data/SEG_M_AXI_Reg}]
 set_property range 1G [get_bd_addr_segs {ps_sys_7/Data/SEG_M_AXI_Reg}]
