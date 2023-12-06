@@ -6,7 +6,7 @@ reorder_files -fileset constrs_1 -front [get_files zcu102_system_constr.tcl]
 
 #create a base axi offset for addresses in the system_base
 
-set address_offset 0x9000000
+set address_offset 0x90000000
 
 #BD METHOD
 create_bd_design "system_ps"
