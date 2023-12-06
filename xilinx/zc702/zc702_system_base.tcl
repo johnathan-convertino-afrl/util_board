@@ -4,6 +4,8 @@ set_msg_config -id "Common 17-55" -new_severity WARNING
 
 reorder_files -fileset constrs_1 -front [get_files zc702_system_constr.tcl]
 
+set address_offset 0x7000000
+
 #BD METHOD
 create_bd_design "system_ps"
 update_compile_order -fileset sources_1
