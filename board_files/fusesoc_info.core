@@ -38,10 +38,27 @@ filesets:
       - zedboard/1.4/preset.xml : {copyto : ./board_files/zedboard/1.4/}
       - zedboard/1.4/zed_board.jpg : {copyto : ./board_files/zedboard/1.4/}
 
+  rfsoc4x2-files:
+    files:
+      - rfsoc4x2/1.0/rfsoc4x2_board.png : {copyto : ./board_files/rfsoc4x2/1.0/}
+      - rfsoc4x2/1.0/part0_pins.xml : {copyto : ./board_files/rfsoc4x2/1.0/}
+      - rfsoc4x2/1.0/LICENSE : {copyto : ./board_files/rfsoc4x2/1.0/}
+      - rfsoc4x2/1.0/board.xml : {copyto : ./board_files/rfsoc4x2/1.0/}
+      - rfsoc4x2/1.0/xitem.json : {copyto : ./board_files/rfsoc4x2/1.0/}
+      - rfsoc4x2/1.0/preset.xml : {copyto : ./board_files/rfsoc4x2/1.0/}
+
+  netfpga-1g-cml:
+    files:
+      - netfpga-1g-cml/F.0/netfpga-1g-cml.png : {copyto : ./board_files/netfpga-1g-cml/F.0/}
+      - netfpga-1g-cml/F.0/mig.prj : {copyto : ./board_files/netfpga-1g-cml/F.0/}
+      - netfpga-1g-cml/F.0/part0_pins.xml : {copyto : ./board_files/netfpga-1g-cml/F.0/}
+      - netfpga-1g-cml/F.0/board.xml : {copyto : ./board_files/netfpga-1g-cml/F.0/}
+      - netfpga-1g-cml/F.0/preset.xml : {copyto : ./board_files/netfpga-1g-cml/F.0/}
+
 targets:
   default:
     default_tool: vivado
-    filesets: [arty-a7-35-files, cmod-s7-25-files, nexys-a7-100t-files, zedboard-files]
+    filesets: [arty-a7-35-files, cmod-s7-25-files, nexys-a7-100t-files, zedboard-files, rfsoc4x2-files, netfpga-1g-cml]
     tools:
       vivado:
         board_repo_paths: [./board_files/]
