@@ -1,4 +1,5 @@
-# hanPilot carrier defaults
+# hanpilot carrier defaults
+#
 
 # clocks and resets
 set_location_assignment PIN_AJ18  -to sys_clk
