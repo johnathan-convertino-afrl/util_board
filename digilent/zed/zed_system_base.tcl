@@ -10,7 +10,7 @@ set address_offset 0x70000000
 create_bd_design "system_ps"
 update_compile_order -fileset sources_1
 
-vivado_ip_vlvn_version_check "xilinx.com:ip:processing_system7:5.5"
+ip_vlvn_version_check "xilinx.com:ip:processing_system7:5.5"
 
 create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 ps_sys_7
 set_property CONFIG.preset {ZedBoard} [get_bd_cells ps_sys_7]
@@ -37,7 +37,7 @@ set_property -quiet CONFIG.PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_3 {-0.061} [get_bd_c
 
 #set_property CONFIG.PCW_USE_M_AXI_GP1 {1} [get_bd_cells ps_sys_7]
 
-vivado_ip_vlvn_version_check "xilinx.com:ip:proc_sys_reset:5.0"
+ip_vlvn_version_check "xilinx.com:ip:proc_sys_reset:5.0"
 
 create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 ps_sys_reset
 set_property CONFIG.RESET_BOARD_INTERFACE Custom [get_bd_cells ps_sys_reset]
@@ -45,7 +45,7 @@ set_property CONFIG.C_EXT_RST_WIDTH 1 [get_bd_cells ps_sys_reset]
 set_property CONFIG.C_AUX_RST_WIDTH 1 [get_bd_cells ps_sys_reset]
 
 
-vivado_ip_vlvn_version_check "xilinx.com:ip:axi_interconnect:2.1"
+ip_vlvn_version_check "xilinx.com:ip:axi_interconnect:2.1"
 
 create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 axi_interconnect
 set_property CONFIG.ENABLE_ADVANCED_OPTIONS {1} [get_bd_cells axi_interconnect]

@@ -2,7 +2,7 @@
 
 set_msg_config -id "Common 17-55" -new_severity WARNING
 
-vivado_ip_vlvn_version_check "xilinx.com:ip:clk_wiz:6.0"
+ip_vlvn_version_check "xilinx.com:ip:clk_wiz:6.0"
 
 # create a pll clock IP with a 100 MHz clock
 create_ip -vlnv xilinx.com:ip:clk_wiz:6.0 -module_name clk_wiz_1
@@ -16,7 +16,7 @@ set_property CONFIG.RESET_PORT {reset} [get_ips clk_wiz_1]
 
 set_property generate_synth_checkpoint false [get_files clk_wiz_1.xci]
 
-vivado_ip_vlvn_version_check "xilinx.com:ip:proc_sys_reset:5.0"
+ip_vlvn_version_check "xilinx.com:ip:proc_sys_reset:5.0"
 
 # create a system reset with
 create_ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 -module_name sys_rstgen

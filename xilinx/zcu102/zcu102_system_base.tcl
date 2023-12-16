@@ -12,7 +12,7 @@ set address_offset 0x90000000
 create_bd_design "system_ps"
 update_compile_order -fileset sources_1
 
-vivado_ip_vlvn_version_check "xilinx.com:ip:zynq_ultra_ps_e:3.4"
+ip_vlvn_version_check "xilinx.com:ip:zynq_ultra_ps_e:3.4"
 
 create_bd_cell -type ip -vlnv xilinx.com:ip:zynq_ultra_ps_e:3.4 sys_ps8
 
@@ -51,14 +51,14 @@ set_property CONFIG.PSU__MAXIGP2__DATA_WIDTH {32} [get_bd_cells sys_ps8]
 set_property CONFIG.PSU__USE__M_AXI_GP0 {0} [get_bd_cells sys_ps8]
 set_property CONFIG.PSU__USE__M_AXI_GP1 {0} [get_bd_cells sys_ps8]
 
-vivado_ip_vlvn_version_check "xilinx.com:ip:proc_sys_reset:5.0"
+ip_vlvn_version_check "xilinx.com:ip:proc_sys_reset:5.0"
 
 create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 ps_sys_reset
 set_property CONFIG.RESET_BOARD_INTERFACE Custom [get_bd_cells ps_sys_reset]
 set_property CONFIG.C_EXT_RST_WIDTH 1 [get_bd_cells ps_sys_reset]
 set_property CONFIG.C_AUX_RST_WIDTH 1 [get_bd_cells ps_sys_reset]
 
-vivado_ip_vlvn_version_check "xilinx.com:ip:axi_interconnect:2.1"
+ip_vlvn_version_check "xilinx.com:ip:axi_interconnect:2.1"
 
 create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 axi_interconnect
 set_property CONFIG.ENABLE_ADVANCED_OPTIONS {1} [get_bd_cells axi_interconnect]
