@@ -7,30 +7,12 @@ filesets:
   src:
     files:
       - hanpilot_system_assign.tcl : {file_type: tclSource}
-      - system_ps_wrapper.qsys : {file_type: QSYS}
-      - ip/system_ps_wrapper/system_ps_wrapper_fmc_i2c.ip : {file_type: IP}
-      - ip/system_ps_wrapper/system_ps_wrapper_sys_clk.ip : {file_type: IP}
-      - ip/system_ps_wrapper/system_ps_wrapper_sys_dma_clk.ip : {file_type: IP}
-      - ip/system_ps_wrapper/system_ps_wrapper_sys_gpio_bd.ip : {file_type: IP}
-      - ip/system_ps_wrapper/system_ps_wrapper_sys_gpio_in.ip : {file_type: IP}
-      - ip/system_ps_wrapper/system_ps_wrapper_sys_gpio_out.ip : {file_type: IP}
-      - ip/system_ps_wrapper/system_ps_wrapper_sys_hps_ddr4_cntrl.ip : {file_type: IP}
-      - ip/system_ps_wrapper/system_ps_wrapper_sys_i2c.ip : {file_type: IP}
-      - ip/system_ps_wrapper/system_ps_wrapper_sys_spi.ip : {file_type: IP}
-
+      - hanpilot_system_qsys.tcl : {file_type: user, copyto : .}
 
   dep:
     depend:
       - AFRL:utility:tcl_helper_check:1.0.0
-      - AFRL:utility:generators:1.0.0
-
-generate:
-  gen_platform:
-    generator: gen_qsys
-    parameters:
-      script: [hanpilot_system_ps_qsys_gen.tcl]
 
 targets:
   default:
     filesets: [src, dep]
-    generate: [gen_platform]
