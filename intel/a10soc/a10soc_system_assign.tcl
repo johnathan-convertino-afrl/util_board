@@ -1,6 +1,10 @@
 # a10soc carrier defaults
 # clocks and resets
 
+qexec "$quartus(quartus_rootpath)/sopc_builder/bin/qsys-script --quartus-project=$quartus(project)  --script=a10soc_system_qsys.tcl"
+
+qexec "$quartus(quartus_rootpath)/sopc_builder/bin/qsys-generate system_ps_wrapper.qsys --quartus-project=$quartus(project) --synthesis=VERILOG"
+
 set_location_assignment PIN_AM10  -to sys_clk
 set_location_assignment PIN_AL10  -to "sys_clk(n)"
 set_location_assignment PIN_AV21  -to sys_resetn
