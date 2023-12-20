@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: AFRL:utility:digilent_zed_board:1.0.0
+name: AFRL:utility:digilent_zed_board_base:1.0.0
 description: Files to help generate zed board base PS system.
 
 filesets:

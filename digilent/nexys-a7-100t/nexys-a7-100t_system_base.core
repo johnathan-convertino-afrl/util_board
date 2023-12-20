@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: AFRL:utility:digilent_nexys-a7-100t_board:1.0.0
+name: AFRL:utility:digilent_nexys-a7-100t_board_base:1.0.0
 description: Files to help generate base nexys-a7 board items
 
 filesets:

@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: AFRL:utility:xilinx_zc702_board:1.0.0
+name: AFRL:utility:xilinx_zc702_board_base:1.0.0
 description: Files to help generate base zc702 board items
 
 filesets:

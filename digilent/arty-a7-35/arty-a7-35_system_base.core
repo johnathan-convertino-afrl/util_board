@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: AFRL:utility:digilent_arty-a7-35_board:1.0.0
+name: AFRL:utility:digilent_arty-a7-35_board_base:1.0.0
 description: Files to help generate base arty board items
 
 filesets:

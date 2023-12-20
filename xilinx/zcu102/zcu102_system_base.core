@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: AFRL:utility:xilinx_zcu102_board:1.0.0
+name: AFRL:utility:xilinx_zcu102_board_base:1.0.0
 description: Files to help generate base zcu102 board items
 
 filesets:
