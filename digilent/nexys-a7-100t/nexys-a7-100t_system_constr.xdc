@@ -5,7 +5,7 @@ set_property -dict {PACKAGE_PIN E3 IOSTANDARD LVCMOS33} [get_ports clk]
 create_clock -period 10.000 -name board_clk_100mhz -waveform {0.000 5.000} -add [get_ports clk]
 
 ## reset
-set_property -dict {PACKAGE_PIN C12 IOSTANDARD LVCMOS33} [get_ports resetn]
+set_property -dict {PACKAGE_PIN C2 IOSTANDARD LVCMOS33} [get_ports resetn]
 
 ## leds
 set_property -dict { PACKAGE_PIN H17   IOSTANDARD LVCMOS33 } [get_ports { leds[0] }]
@@ -43,22 +43,22 @@ set_property -dict {PACKAGE_PIN M17 IOSTANDARD LVCMOS33} [get_ports {push_button
 set_property -dict {PACKAGE_PIN P18 IOSTANDARD LVCMOS33} [get_ports {push_buttons[4]}]
 
 ## slide_switches
-#set_property -dict { PACKAGE_PIN J15   IOSTANDARD LVCMOS33 } [get_ports { slide_switches[0] }]
-#set_property -dict { PACKAGE_PIN L16   IOSTANDARD LVCMOS33 } [get_ports { slide_switches[1] }]
-#set_property -dict { PACKAGE_PIN M13   IOSTANDARD LVCMOS33 } [get_ports { slide_switches[2] }]
-#set_property -dict { PACKAGE_PIN R15   IOSTANDARD LVCMOS33 } [get_ports { slide_switches[3] }]
-#set_property -dict { PACKAGE_PIN R17   IOSTANDARD LVCMOS33 } [get_ports { slide_switches[4] }]
-#set_property -dict { PACKAGE_PIN T18   IOSTANDARD LVCMOS33 } [get_ports { slide_switches[5] }]
-#set_property -dict { PACKAGE_PIN U18   IOSTANDARD LVCMOS33 } [get_ports { slide_switches[6] }]
-#set_property -dict { PACKAGE_PIN R13   IOSTANDARD LVCMOS33 } [get_ports { slide_switches[7] }]
-#set_property -dict { PACKAGE_PIN T8    IOSTANDARD LVCMOS18 } [get_ports { slide_switches[8] }]
-#set_property -dict { PACKAGE_PIN U8    IOSTANDARD LVCMOS18 } [get_ports { slide_switches[9] }]
-#set_property -dict { PACKAGE_PIN R16   IOSTANDARD LVCMOS33 } [get_ports { slide_switches[10] }]
-#set_property -dict { PACKAGE_PIN T13   IOSTANDARD LVCMOS33 } [get_ports { slide_switches[11] }]
-#set_property -dict { PACKAGE_PIN H6    IOSTANDARD LVCMOS33 } [get_ports { slide_switches[12] }]
-#set_property -dict { PACKAGE_PIN U12   IOSTANDARD LVCMOS33 } [get_ports { slide_switches[13] }]
-#set_property -dict { PACKAGE_PIN U11   IOSTANDARD LVCMOS33 } [get_ports { slide_switches[14] }]
-#set_property -dict { PACKAGE_PIN V10   IOSTANDARD LVCMOS33 } [get_ports { slide_switches[15] }]
+set_property -dict { PACKAGE_PIN J15   IOSTANDARD LVCMOS33 } [get_ports { slide_switches[0] }]
+set_property -dict { PACKAGE_PIN L16   IOSTANDARD LVCMOS33 } [get_ports { slide_switches[1] }]
+set_property -dict { PACKAGE_PIN M13   IOSTANDARD LVCMOS33 } [get_ports { slide_switches[2] }]
+set_property -dict { PACKAGE_PIN R15   IOSTANDARD LVCMOS33 } [get_ports { slide_switches[3] }]
+set_property -dict { PACKAGE_PIN R17   IOSTANDARD LVCMOS33 } [get_ports { slide_switches[4] }]
+set_property -dict { PACKAGE_PIN T18   IOSTANDARD LVCMOS33 } [get_ports { slide_switches[5] }]
+set_property -dict { PACKAGE_PIN U18   IOSTANDARD LVCMOS33 } [get_ports { slide_switches[6] }]
+set_property -dict { PACKAGE_PIN R13   IOSTANDARD LVCMOS33 } [get_ports { slide_switches[7] }]
+set_property -dict { PACKAGE_PIN T8    IOSTANDARD LVCMOS18 } [get_ports { slide_switches[8] }]
+set_property -dict { PACKAGE_PIN U8    IOSTANDARD LVCMOS18 } [get_ports { slide_switches[9] }]
+set_property -dict { PACKAGE_PIN R16   IOSTANDARD LVCMOS33 } [get_ports { slide_switches[10] }]
+set_property -dict { PACKAGE_PIN T13   IOSTANDARD LVCMOS33 } [get_ports { slide_switches[11] }]
+set_property -dict { PACKAGE_PIN H6    IOSTANDARD LVCMOS33 } [get_ports { slide_switches[12] }]
+set_property -dict { PACKAGE_PIN U12   IOSTANDARD LVCMOS33 } [get_ports { slide_switches[13] }]
+set_property -dict { PACKAGE_PIN U11   IOSTANDARD LVCMOS33 } [get_ports { slide_switches[14] }]
+set_property -dict { PACKAGE_PIN V10   IOSTANDARD LVCMOS33 } [get_ports { slide_switches[15] }]
 
 ## uart
 set_property PACKAGE_PIN C4 [get_ports ftdi_tx]
