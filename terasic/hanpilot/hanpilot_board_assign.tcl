@@ -1,7 +1,7 @@
 # hanpilot carrier defaults
 #
 
-qexec "$quartus(quartus_rootpath)/sopc_builder/bin/qsys-script --quartus-project=$quartus(project)  --script=hanpilot_system_base.tcl"
+qexec "$quartus(quartus_rootpath)/sopc_builder/bin/qsys-script --quartus-project=$quartus(project)  --script=hanpilot_board_base.tcl"
 
 qexec "$quartus(quartus_rootpath)/sopc_builder/bin/qsys-generate system_ps_wrapper.qsys --quartus-project=$quartus(project) --synthesis=VERILOG"
 

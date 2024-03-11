@@ -2,7 +2,7 @@
 
 set_msg_config -id "Common 17-55" -new_severity WARNING
 
-reorder_files -fileset constrs_1 -front [get_files zc706_system_constr.tcl]
+reorder_files -fileset constrs_1 -front [get_files zc702_board_base_constr.tcl]
 
 set address_offset 0x70000000
 
@@ -13,7 +13,7 @@ update_compile_order -fileset sources_1
 ip_vlvn_version_check "xilinx.com:ip:processing_system7:5.5"
 
 create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 ps_sys_7
-set_property CONFIG.preset {ZC706} [get_bd_cells ps_sys_7]
+set_property CONFIG.preset {ZC702} [get_bd_cells ps_sys_7]
 set_property CONFIG.PCW_TTC0_PERIPHERAL_ENABLE 0 [get_bd_cells ps_sys_7]
 set_property CONFIG.PCW_EN_CLK1_PORT 1 [get_bd_cells ps_sys_7]
 set_property CONFIG.PCW_EN_RST1_PORT 1 [get_bd_cells ps_sys_7]

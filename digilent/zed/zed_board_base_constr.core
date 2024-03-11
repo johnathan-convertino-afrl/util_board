@@ -1,0 +1,13 @@
+CAPI=2:
+
+name: AFRL:utility:digilent_zed_board_base_constr:1.0.0
+description: Files to help generate zed board base PS system.
+
+filesets:
+  src:
+    files:
+      - zed_board_base_constr.tcl : {file_type : SDC}
+
+targets:
+  default: &default
+    filesets: [src]

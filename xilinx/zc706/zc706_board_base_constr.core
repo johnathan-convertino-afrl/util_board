@@ -1,0 +1,13 @@
+CAPI=2:
+
+name: AFRL:utility:xilinx_zc706_board_base_constr:1.0.0
+description: Files to help generate base zc706 board items
+
+filesets:
+  src:
+    files:
+      - zc706_board_base_constr.tcl : {file_type : SDC}
+
+targets:
+  default: &default
+    filesets: [src]

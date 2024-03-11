@@ -6,8 +6,8 @@ description: Files to help generate base hanpilot board items
 filesets:
   src:
     files:
-      - hanpilot_system_assign.tcl : {file_type: tclSource}
-      - hanpilot_system_base.tcl : {file_type: user, copyto : .}
+      - hanpilot_board_assign.tcl : {file_type: tclSource}
+      - hanpilot_board_base.tcl : {file_type: user, copyto : .}
 
   dep:
     depend:

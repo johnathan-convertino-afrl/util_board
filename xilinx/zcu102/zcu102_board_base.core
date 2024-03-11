@@ -6,11 +6,11 @@ description: Files to help generate base zcu102 board items
 filesets:
   src:
     files:
-      - zcu102_system_base.tcl : {file_type: tclSource}
-      - zcu102_system_constr.tcl : {file_type : SDC}
+      - zcu102_board_base.tcl : {file_type: tclSource}
     
   dep:
     depend:
+      - AFRL:utility:xilinx_zcu102_board_base_constr:1.0.0
       - AFRL:utility:tcl_helper_check:1.0.0
 
 targets:

@@ -1,17 +1,17 @@
 CAPI=2:
 
-name: AFRL:utility:xilinx_vc707_board:1.0.0
+name: AFRL:utility:xilinx_vc707_board_base:1.0.0
 description: Files to help generate base vc707 board items
 
 filesets:
   src:
     files:
-      - vc707_system_bd.tcl  : {file_type: tclSource}
-      - vc707_system_mig.tcl : {file_type: prj}
-      - vc707_system_constr.xdc : {file_type : xdc}
+      - vc707_board_base.tcl     : {file_type: tclSource}
     
   dep:
     depend:
+      - AFRL:utility:vc707_board_base_ddr_cfg:1.0.0
+      - AFRL:utility:xilinx_vc707_board_base_constr:1.0.0
       - AD:utility:ad_tcl_vivado_project:1.0.0
 
 targets:

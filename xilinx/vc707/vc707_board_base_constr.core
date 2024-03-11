@@ -1,0 +1,13 @@
+CAPI=2:
+
+name: AFRL:utility:xilinx_vc707_board_base_constr:1.0.0
+description: Files to help generate base vc707 board items
+
+filesets:
+  src:
+    files:
+      - vc707_board_base_constr.xdc : {file_type : xdc}
+
+targets:
+  default: &default
+    filesets: [src]

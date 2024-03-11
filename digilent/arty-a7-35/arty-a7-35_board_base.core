@@ -6,11 +6,11 @@ description: Files to help generate base arty board items
 filesets:
   src:
     files:
-      - arty-a7-35_system_base.tcl  : {file_type: tclSource}
-      - arty-a7-35_system_constr.xdc : {file_type : xdc}
+      - arty-a7-35_board_base.tcl  : {file_type: tclSource}
 
   dep:
     depend:
+      - AFRL:utility:digilent_arty-a7-35_board_base_constr:1.0.0
       - AFRL:utility:tcl_helper_check:1.0.0
 
 targets:

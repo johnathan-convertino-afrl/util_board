@@ -1,0 +1,13 @@
+CAPI=2:
+
+name: AFRL:utility:digilent_nexys-a7-100t_board_base_constr:1.0.0
+description: Constraint files only
+
+filesets:
+  src:
+    files:
+      - nexys-a7-100t_board_base_constr.xdc : {file_type : xdc}
+    
+targets:
+  default: &default
+    filesets: [src]

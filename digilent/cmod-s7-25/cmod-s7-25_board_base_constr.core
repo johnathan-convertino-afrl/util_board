@@ -1,0 +1,13 @@
+CAPI=2:
+
+name: AFRL:utility:digilent_cmod-s7-25_board_base_constr:1.0.0
+description: Files to help generate base cmod-s7 board items
+
+filesets:
+  src:
+    files:
+      - cmod-s7-25_board_base_constr.xdc : {file_type : xdc}
+
+targets:
+  default: &default
+    filesets: [src]

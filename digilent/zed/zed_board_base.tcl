@@ -2,7 +2,7 @@
 
 set_msg_config -id "Common 17-55" -new_severity WARNING
 
-reorder_files -fileset constrs_1 -front [get_files zc702_system_constr.tcl]
+reorder_files -fileset constrs_1 -front [get_files zed_board_base_constr.tcl]
 
 set address_offset 0x70000000
 
@@ -13,7 +13,7 @@ update_compile_order -fileset sources_1
 ip_vlvn_version_check "xilinx.com:ip:processing_system7:5.5"
 
 create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 ps_sys_7
-set_property CONFIG.preset {ZC702} [get_bd_cells ps_sys_7]
+set_property CONFIG.preset {ZedBoard} [get_bd_cells ps_sys_7]
 set_property CONFIG.PCW_TTC0_PERIPHERAL_ENABLE 0 [get_bd_cells ps_sys_7]
 set_property CONFIG.PCW_EN_CLK1_PORT 1 [get_bd_cells ps_sys_7]
 set_property CONFIG.PCW_EN_RST1_PORT 1 [get_bd_cells ps_sys_7]
@@ -31,6 +31,11 @@ set_property CONFIG.PCW_SPI0_PERIPHERAL_ENABLE 1 [get_bd_cells ps_sys_7]
 set_property CONFIG.PCW_SPI0_SPI0_IO {EMIO} [get_bd_cells ps_sys_7]
 set_property CONFIG.PCW_SPI1_PERIPHERAL_ENABLE 1 [get_bd_cells ps_sys_7]
 set_property CONFIG.PCW_SPI1_SPI1_IO {EMIO} [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_QSPI_GRP_SINGLE_SS_ENABLE {1} [get_bd_cells ps_sys_7]
+set_property -quiet CONFIG.PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_2 {-0.009} [get_bd_cells ps_sys_7]
+set_property -quiet CONFIG.PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_3 {-0.061} [get_bd_cells ps_sys_7]
+
+#set_property CONFIG.PCW_USE_M_AXI_GP1 {1} [get_bd_cells ps_sys_7]
 
 ip_vlvn_version_check "xilinx.com:ip:proc_sys_reset:5.0"
 
@@ -69,8 +74,8 @@ connect_bd_net [get_bd_pins /ps_sys_7/GPIO_O] [get_bd_ports GPIO_O]
 create_bd_port -dir O -from 63 -to 0 GPIO_T
 connect_bd_net [get_bd_pins /ps_sys_7/GPIO_T] [get_bd_ports GPIO_T]
 
-# create_bd_intf_port -mode Master -vlnv xilinx.com:display_processing_system7:usbctrl_rtl:1.0 USB0
-# connect_bd_intf_net [get_bd_intf_pins ps_sys_7/USBIND_0] [get_bd_intf_ports USB0]
+create_bd_intf_port -mode Master -vlnv xilinx.com:display_processing_system7:usbctrl_rtl:1.0 USB0
+connect_bd_intf_net [get_bd_intf_pins ps_sys_7/USBIND_0] [get_bd_intf_ports USB0]
 
 # create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M_AXI_GP0
 # set_property -dict [list CONFIG.PROTOCOL [get_property CONFIG.PROTOCOL [get_bd_intf_pins ps_sys_7/M_AXI_GP0]] CONFIG.HAS_REGION [get_property CONFIG.HAS_REGION [get_bd_intf_pins ps_sys_7/M_AXI_GP0]] CONFIG.NUM_READ_OUTSTANDING [get_property CONFIG.NUM_READ_OUTSTANDING [get_bd_intf_pins ps_sys_7/M_AXI_GP0]] CONFIG.NUM_WRITE_OUTSTANDING [get_property CONFIG.NUM_WRITE_OUTSTANDING [get_bd_intf_pins ps_sys_7/M_AXI_GP0]]] [get_bd_intf_ports M_AXI_GP0]
