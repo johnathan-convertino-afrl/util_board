@@ -1,18 +1,13 @@
 CAPI=2:
 
 name: AFRL:utility:digilent_nexys-a7-100t_board_base_ddr_cfg:1.0.0
-description: Files to add ddr core to block diagram from board_base_bd
+description: Files to for DDR config
 
 filesets:
   src:
     files:
-      - nexys-a7-100t_system_base.tcl  : {file_type: tclSource}
-      - nexys-a7-100t_system_constr.xdc : {file_type : xdc}
-
-  dep:
-    depend:
-      - AFRL:utility:tcl_helper_check:1.0.0
-    
+      - nexys-a7-100t_mig.prj : {file_type : user} //, copyto : .}
+      - nexys-a7-100t_mig.ucf : {file_type : user} //, copyto : .}
 targets:
   default: &default
-    filesets: [src, dep]
+    filesets: [src]
