@@ -1,0 +1,12 @@
+CAPI=2:
+
+name: AFRL:utility:digilent_nexys-a7-100t_board_base_ddr_native_cfg:1.0.0
+description: Files for native DDR config
+
+filesets:
+  src:
+    files:
+      - nexys-a7-100t_native_mig.prj : {file_type : user, copyto : ./ddr_mig.prj}
+targets:
+  default: &default
+    filesets: [src]
