@@ -6,7 +6,7 @@ description: Files to help generate base zc706 board items
 filesets:
   src:
     files:
-      - zc706_board_base_base.tcl : {file_type: tclSource}
+      - zc706_board_base.tcl : {file_type: tclSource}
     
   dep:
     depend:
