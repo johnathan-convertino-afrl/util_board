@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: AFRL:utility:vc707_board_base_ddr_cfg:1.0.0
+name: AFRL:utility:xilinx_vc707_board_base_ddr_cfg:1.0.0
 description: Files for AXI DDR config
 
 filesets:
