@@ -137,7 +137,7 @@ proc do_create_system_ps_wrapper {} {
   add_instance sys_axi_bridge altera_axi_bridge
   set_instance_parameter_value sys_axi_bridge AXI_VERSION {AXI4-Lite}
   set_instance_parameter_value sys_axi_bridge DATA_WIDTH {32}
-  set_instance_parameter_value sys_axi_bridge ADDR_WIDTH {32}
+  set_instance_parameter_value sys_axi_bridge ADDR_WIDTH {28}
 
   add_interface sys_hps_dma_data conduit end
   set_interface_property sys_hps_dma_data EXPORT_OF sys_hps.f2sdram0_data
@@ -284,6 +284,7 @@ proc do_create_system_ps_wrapper {} {
   add_connection sys_hps.h2f_lw_axi_master sys_spi.spi_control_port
   set_connection_parameter_value sys_hps.h2f_lw_axi_master/sys_spi.spi_control_port baseAddress 0x00000040
 
+  set_connection_parameter_value sys_hps.h2f_axi_master/sys_axi_bridge.s0 baseAddress 0x70000000
   # interrupts
 
   add_connection sys_hps.f2h_irq0 sys_gpio_in.irq
