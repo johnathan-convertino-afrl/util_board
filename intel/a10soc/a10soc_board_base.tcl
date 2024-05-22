@@ -139,6 +139,9 @@ proc do_create_system_ps_wrapper {} {
   set_instance_parameter_value sys_axi_bridge DATA_WIDTH {32}
   set_instance_parameter_value sys_axi_bridge ADDR_WIDTH {18}
 
+  add_instance sys_irq_bridge altera_irq_bridge
+  set_instance_parameter_value sys_irq_bridge IRQ_WIDTH {4}
+
   add_interface sys_hps_dma_data conduit end
   set_interface_property sys_hps_dma_data EXPORT_OF sys_hps.f2sdram0_data
 
@@ -170,6 +173,9 @@ proc do_create_system_ps_wrapper {} {
   add_connection sys_rst.out_reset_1 sys_hps.f2sdram0_reset
   add_interface sys_delay_clk clock source
   set_interface_property sys_delay_clk EXPORT_OF sys_hps.h2f_user0_clock
+  set_interface_property irq  EXPORT_OF sys_irq_bridge.receiver_irq
+  add_connection sys_rst.out_reset_1 sys_irq_bridge.clk_reset
+  add_connection sys_clk.out_clk_1 sys_irq_bridge.clk
 
   # ddr4 interface
 
@@ -283,6 +289,7 @@ proc do_create_system_ps_wrapper {} {
   set_connection_parameter_value sys_hps.h2f_lw_axi_master/sys_spi.spi_control_port baseAddress 0x00000040
 
   set_connection_parameter_value sys_hps.h2f_lw_axi_master/sys_axi_bridge.s0 baseAddress 0x00040000
+
   # interrupts
 
   add_connection sys_hps.f2h_irq0 sys_gpio_in.irq
@@ -293,6 +300,11 @@ proc do_create_system_ps_wrapper {} {
 
   add_connection sys_hps.f2h_irq0 sys_spi.irq
   set_connection_parameter_value sys_hps.f2h_irq0/sys_spi.irq irqNumber 7
+
+  add_connection sys_hps.f2h_irq0 sys_irq_bridge.sender0_irq
+  add_connection sys_hps.f2h_irq0 sys_irq_bridge.sender1_irq
+  add_connection sys_hps.f2h_irq0 sys_irq_bridge.sender2_irq
+  add_connection sys_hps.f2h_irq0 sys_irq_bridge.sender3_irq
 
   # architecture specific global variables
 
