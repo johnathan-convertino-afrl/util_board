@@ -441,8 +441,8 @@ proc do_create_system_ps_wrapper {} {
 
   add_connection sys_hps.h2f_lw_axi_master fmc_i2c.csr
   set_connection_parameter_value sys_hps.h2f_lw_axi_master/fmc_i2c.csr baseAddress 0x000000C0
-#
-  set_connection_parameter_value sys_hps.h2f_axi_master/sys_axi_bridge.s0 baseAddress 0x00040000
+
+  set_connection_parameter_value sys_hps.h2f_lw_axi_master/sys_axi_bridge.s0 baseAddress 0x00040000
 
   # interrupts
 

@@ -97,7 +97,7 @@ proc do_create_system_ps_wrapper {} {
   add_instance sys_hps altera_arria10_hps
   set_instance_parameter_value sys_hps {MPU_EVENTS_Enable} {0}
   set_instance_parameter_value sys_hps {F2S_Width} {0}
-  set_instance_parameter_value sys_hps {S2F_Width} {1}
+  set_instance_parameter_value sys_hps {S2F_Width} {0}
   set_instance_parameter_value sys_hps {LWH2F_Enable} {1}
   set_instance_parameter_value sys_hps {F2SDRAM_PORT_CONFIG} {5}
   set_instance_parameter_value sys_hps {F2SDRAM0_ENABLED} {1}
@@ -137,7 +137,7 @@ proc do_create_system_ps_wrapper {} {
   add_instance sys_axi_bridge altera_axi_bridge
   set_instance_parameter_value sys_axi_bridge AXI_VERSION {AXI4-Lite}
   set_instance_parameter_value sys_axi_bridge DATA_WIDTH {32}
-  set_instance_parameter_value sys_axi_bridge ADDR_WIDTH {28}
+  set_instance_parameter_value sys_axi_bridge ADDR_WIDTH {18}
 
   add_interface sys_hps_dma_data conduit end
   set_interface_property sys_hps_dma_data EXPORT_OF sys_hps.f2sdram0_data
@@ -151,13 +151,11 @@ proc do_create_system_ps_wrapper {} {
   add_connection sys_clk.out_clk_1 sys_rst.clk
   add_connection sys_rst.out_reset_1 sys_axi_bridge.clk_reset
   add_connection sys_clk.out_clk_1 sys_axi_bridge.clk
-  add_connection sys_hps.h2f_axi_master sys_axi_bridge.s0
+  add_connection sys_hps.h2f_lw_axi_master sys_axi_bridge.s0
   add_interface m_axi conduit end
   set_interface_property m_axi EXPORT_OF sys_axi_bridge.m0
-  add_connection sys_clk.out_clk_1 sys_hps.h2f_axi_clock
   add_interface s_axi_aresetn reset source
   set_interface_property s_axi_aresetn EXPORT_OF sys_rst.out_reset
-  add_connection sys_rst.out_reset_1 sys_hps.h2f_axi_reset
   add_interface sys_hps_rstn reset sink
   set_interface_property sys_hps_rstn EXPORT_OF sys_hps.f2h_cold_reset_req
   add_interface sys_hps_out_rstn reset source
@@ -284,7 +282,7 @@ proc do_create_system_ps_wrapper {} {
   add_connection sys_hps.h2f_lw_axi_master sys_spi.spi_control_port
   set_connection_parameter_value sys_hps.h2f_lw_axi_master/sys_spi.spi_control_port baseAddress 0x00000040
 
-  set_connection_parameter_value sys_hps.h2f_axi_master/sys_axi_bridge.s0 baseAddress 0x70000000
+  set_connection_parameter_value sys_hps.h2f_lw_axi_master/sys_axi_bridge.s0 baseAddress 0x00040000
   # interrupts
 
   add_connection sys_hps.f2h_irq0 sys_gpio_in.irq
