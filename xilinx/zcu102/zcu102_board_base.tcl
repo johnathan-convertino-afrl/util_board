@@ -16,6 +16,7 @@ ip_vlvn_version_check "xilinx.com:ip:zynq_ultra_ps_e:3.4"
 
 create_bd_cell -type ip -vlnv xilinx.com:ip:zynq_ultra_ps_e:3.4 sys_ps8
 
+set_property CONFIG.PSU__PSS_REF_CLK__FREQMHZ 33.333333333 [get_bd_cells sys_ps8]
 set_property CONFIG.PSU__USE__IRQ1 {1} [get_bd_cells sys_ps8]
 set_property CONFIG.PSU__USE__S_AXI_GP2 {1} [get_bd_cells sys_ps8]
 set_property CONFIG.PSU__USE__S_AXI_GP3 {1} [get_bd_cells sys_ps8]
@@ -36,7 +37,7 @@ set_property CONFIG.PSU__SPI0__GRP_SS1__ENABLE 1 [get_bd_cells sys_ps8]
 set_property CONFIG.PSU__SPI0__GRP_SS2__ENABLE 1 [get_bd_cells sys_ps8]
 set_property CONFIG.PSU__CRL_APB__SPI0_REF_CTRL__FREQMHZ 100 [get_bd_cells sys_ps8]
 set_property CONFIG.PSU__SPI1__PERIPHERAL__ENABLE 1 [get_bd_cells sys_ps8]
-set_property CONFIG.PSU__SPI1__PERIPHERAL__IO EMIO [get_bd_cells sys_ps8]
+set_property CONFIG.PSU__SPI1__PERIPHERAL__IO {EMIO} [get_bd_cells sys_ps8]
 set_property CONFIG.PSU__SPI1__GRP_SS1__ENABLE 1 [get_bd_cells sys_ps8]
 set_property CONFIG.PSU__SPI1__GRP_SS2__ENABLE 1 [get_bd_cells sys_ps8]
 set_property CONFIG.PSU__CRL_APB__SPI1_REF_CTRL__FREQMHZ 100 [get_bd_cells sys_ps8]
