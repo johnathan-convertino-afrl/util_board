@@ -213,6 +213,8 @@ proc do_create_system_ps_wrapper {} {
   set_instance_parameter_value sys_hps_ddr4_cntrl {DIAG_DDR4_SKIP_CA_LEVEL} {0}
   set_instance_parameter_value sys_hps_ddr4_cntrl {SHORT_QSYS_INTERFACE_NAMES} {0}
 
+  set_instance_parameter_value sys_hps_ddr4_cntrl {PHY_DDR4_HPS_ENABLE_EARLY_RELEASE} {1}
+
   add_interface sys_hps_ddr_rstn reset sink
   set_interface_property sys_hps_ddr_rstn EXPORT_OF sys_hps_ddr4_cntrl.global_reset_reset_sink
   add_connection sys_hps_ddr4_cntrl.hps_emif_conduit_end sys_hps.emif
