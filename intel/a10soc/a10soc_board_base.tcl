@@ -308,6 +308,8 @@ proc do_create_system_ps_wrapper {} {
 
   # architecture specific global variables
 
+  set_instance_parameter_value sys_spi {clockPolarity} {1}
+
   set xcvr_reconfig_addr_width 10
 }
 
