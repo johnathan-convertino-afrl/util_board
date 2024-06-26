@@ -6,7 +6,7 @@ description: Files to help generate base crosslink-nx eval constraints
 filesets:
   src:
     files:
-      - crosslink-nx_eval_board_base_constr.pdc : {file_type : PDC}
+      - crosslink-nx_eval_board_base_constr.sdc : {file_type : user, copyto: ./constr/}
 
 targets:
   default: &default

@@ -1,6 +1,4 @@
 ## These constraints are targetted to Crosslink-NX evalaution board
-set_clock_uncertainty -setup 0.5 [get_clocks clk]
-
 ldc_set_location -site {N14} [get_ports {slide_switches[0]}]
 ldc_set_port -iobuf {IO_TYPE=LVCMOS33 PULLMODE=NONE} [get_ports {slide_switches[0]}]
 ldc_set_location -site {M14} [get_ports {slide_switches[1]}]
@@ -18,7 +16,7 @@ ldc_set_port -iobuf {IO_TYPE=LVCMOS33 PULLMODE=NONE} [get_ports {slide_switches[
 ldc_set_location -site {M18} [get_ports {slide_switches[7]}]
 ldc_set_port -iobuf {IO_TYPE=LVCMOS33 PULLMODE=NONE} [get_ports {slide_switches[7]}]
 
-ldc_set_location -site {C12} [get_ports clk]
+ldc_set_location -site {L13} [get_ports clk]
 ldc_set_port -iobuf {IO_TYPE=LVCMOS33 PULLMODE=NONE} [get_ports clk]
 
 ldc_set_location -site {E17} [get_ports {leds[0]}]
@@ -39,5 +37,3 @@ ldc_set_location -site {L19} [get_ports {leds[7]}]
 ldc_set_port -iobuf {IO_TYPE=LVCMOS33} [get_ports {leds[7]}]
 
 ldc_set_location -site {G19} [get_ports resetn]
-
-ldc_set_sysconfig {CONFIG_MODE=SPI_SERIAL MCCLK_FREQ=3.5}
