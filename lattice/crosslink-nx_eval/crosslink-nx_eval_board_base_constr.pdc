@@ -1,5 +1,5 @@
 ## These constraints are targetted to Crosslink-NX evalaution board
-set_clock_uncertainty -setup 0.5 [get_clocks CLK]
+set_clock_uncertainty -setup 0.5 [get_clocks clk]
 
 ldc_set_location -site {N14} [get_ports {slide_switches[0]}]
 ldc_set_port -iobuf {IO_TYPE=LVCMOS33 PULLMODE=NONE} [get_ports {slide_switches[0]}]
