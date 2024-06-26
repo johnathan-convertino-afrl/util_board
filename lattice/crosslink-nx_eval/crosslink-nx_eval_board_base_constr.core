@@ -1,0 +1,13 @@
+CAPI=2:
+
+name: AFRL:utility:lattice_crosslink-nx_eval_board_base_constr:1.0.0
+description: Files to help generate base crosslink-nx eval constraints
+
+filesets:
+  src:
+    files:
+      - crosslink-nx_eval_board_base_constr.pdc : {file_type : PDC}
+
+targets:
+  default: &default
+    filesets: [src]
