@@ -7,11 +7,19 @@ filesets:
   src:
     files:
       - crosslink-nx_eval_board_base.tcl  : {file_type: tclSource}
+      - clk_wiz_1.cfg : {file_type: user, copyto: ./ip/clk_wiz_1/}
 
   dep:
     depend:
       - AFRL:utility:lattice_crosslink-nx_eval_board_base_constr:1.0.0
+      - AFRL:utility:tcl_helper_check:1.0.0
 
 targets:
   default: &default
     filesets: [src, dep]
+    hooks:
+      pre_build: ["tool_radiant ? (ip_gen)"]
+
+scripts:
+  ip_gen:
+    cmd : [ipgenwrap, -cfg, ip/clk_wiz_1/clk_wiz_1.cfg, -name, clk_wiz_1, -vlnv, latticesemi.com:module:pll:1.8.0, -p, LIFCL-40, -t, CABGA400, -sp, 9_High-Performance_1.0V, -f, LIFCL, -o, ip/clk_wiz_1/]
