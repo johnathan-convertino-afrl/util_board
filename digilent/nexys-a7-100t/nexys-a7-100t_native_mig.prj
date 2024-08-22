@@ -19,10 +19,10 @@
     <dci_cascade>0</dci_cascade>
     <Controller number="0" >
         <MemoryDevice>DDR2_SDRAM/Components/MT47H64M16HR-25E</MemoryDevice>
-        <TimePeriod>3333</TimePeriod>
+        <TimePeriod>5000</TimePeriod>
         <VccAuxIO>1.8V</VccAuxIO>
         <PHYRatio>2:1</PHYRatio>
-        <InputClkFreq>200.02</InputClkFreq>
+        <InputClkFreq>200.00</InputClkFreq>
         <UIExtraClocks>0</UIExtraClocks>
         <MMCMClkOut0> 1.000</MMCMClkOut0>
         <MMCMClkOut1>1</MMCMClkOut1>
