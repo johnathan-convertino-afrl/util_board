@@ -1,0 +1,16 @@
+CAPI=2:
+
+name: AFRL:utility:adrv9361-z7035_fmc_carrier_board_base:1.0.0
+description: Files to help generate base adrv9361-z7035 fmc carrier board items
+
+filesets:
+  dep:
+    depend:
+      - AFRL:utility:ad_adrv9361-z7035_board_base:1.0.0
+      - AFRL:utility:ad_adrv9361-z7035_board_base_constr:1.0.0
+      - AFRL:utility:ad_adrv9361-z7035_fmc_carrier_board_base_constr:1.0.0
+      - AFRL:utility:tcl_helper_check:1.0.0
+    
+targets:
+  default: &default
+    filesets: [dep]
