@@ -1,16 +1,16 @@
 CAPI=2:
 
 name: AFRL:utility:ad_pluto_board_base:1.0.0
-description: Files to help generate base zc702 board items
+description: Files to help generate base pluto board items
 
 filesets:
   src:
     files:
-      - zc702_board_base.tcl  : {file_type: tclSource}
+      - pluto_board_base.tcl  : {file_type: tclSource}
 
   dep:
     depend:
-      - AFRL:utility:xilinx_zc702_board_base_constr:1.0.0
+      - AFRL:utility:xilinx_pluto_board_base_constr:1.0.0
       - AFRL:utility:tcl_helper_check:1.0.0
     
 targets:

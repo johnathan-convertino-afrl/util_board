@@ -2,7 +2,7 @@
 
 set_msg_config -id "Common 17-55" -new_severity WARNING
 
-reorder_files -fileset constrs_1 -front [get_files zc702_board_base_constr.tcl]
+reorder_files -fileset constrs_1 -front [get_files pluto_board_base_constr.tcl]
 
 set address_offset 0x70000000
 
@@ -13,24 +13,58 @@ update_compile_order -fileset sources_1
 ip_vlvn_version_check "xilinx.com:ip:processing_system7:5.5"
 
 create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 ps_sys_7
-set_property CONFIG.preset {ZC702} [get_bd_cells ps_sys_7]
-set_property CONFIG.PCW_TTC0_PERIPHERAL_ENABLE 0 [get_bd_cells ps_sys_7]
+
+set_property CONFIG.PCW_PRESET_BANK0_VOLTAGE {LVCMOS 1.8V} [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_PRESET_BANK1_VOLTAGE {LVCMOS 1.8V} [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_PACKAGE_NAME clg225 [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_USE_S_AXI_HP1 1 [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_USE_S_AXI_HP0 1 [get_bd_cells ps_sys_7]
 set_property CONFIG.PCW_EN_CLK1_PORT 1 [get_bd_cells ps_sys_7]
 set_property CONFIG.PCW_EN_RST1_PORT 1 [get_bd_cells ps_sys_7]
 set_property CONFIG.PCW_FPGA0_PERIPHERAL_FREQMHZ 100.0 [get_bd_cells ps_sys_7]
 set_property CONFIG.PCW_FPGA1_PERIPHERAL_FREQMHZ 200.0 [get_bd_cells ps_sys_7]
-set_property CONFIG.PCW_USE_FABRIC_INTERRUPT 1 [get_bd_cells ps_sys_7]
-set_property CONFIG.PCW_USE_S_AXI_HP0 1 [get_bd_cells ps_sys_7]
-set_property CONFIG.PCW_USE_S_AXI_HP1 1 [get_bd_cells ps_sys_7]
-set_property CONFIG.PCW_IRQ_F2P_INTR 1 [get_bd_cells ps_sys_7]
 set_property CONFIG.PCW_GPIO_EMIO_GPIO_ENABLE 1 [get_bd_cells ps_sys_7]
 set_property CONFIG.PCW_GPIO_EMIO_GPIO_IO 64 [get_bd_cells ps_sys_7]
-set_property CONFIG.PCW_IRQ_F2P_INTR 1 [get_bd_cells ps_sys_7]
-set_property CONFIG.PCW_IRQ_F2P_MODE REVERSE [get_bd_cells ps_sys_7]
-set_property CONFIG.PCW_SPI0_PERIPHERAL_ENABLE 1 [get_bd_cells ps_sys_7]
-set_property CONFIG.PCW_SPI0_SPI0_IO {EMIO} [get_bd_cells ps_sys_7]
 set_property CONFIG.PCW_SPI1_PERIPHERAL_ENABLE 1 [get_bd_cells ps_sys_7]
 set_property CONFIG.PCW_SPI1_SPI1_IO {EMIO} [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_I2C0_PERIPHERAL_ENABLE 0 [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_UART1_PERIPHERAL_ENABLE 1 [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_UART1_UART1_IO {MIO 12 .. 13} [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_I2C1_PERIPHERAL_ENABLE 0 [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_QSPI_PERIPHERAL_ENABLE 1 [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_QSPI_GRP_SINGLE_SS_ENABLE 1 [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_SD0_PERIPHERAL_ENABLE 0 [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_SPI0_PERIPHERAL_ENABLE 1 [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_SPI0_SPI0_IO EMIO [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_TTC0_PERIPHERAL_ENABLE 0 [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_USE_FABRIC_INTERRUPT 1 [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_USB0_PERIPHERAL_ENABLE 1 [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_GPIO_MIO_GPIO_ENABLE 1 [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_GPIO_MIO_GPIO_IO MIO [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_USB0_RESET_IO {MIO 52} [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_USB0_RESET_ENABLE 1 [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_IRQ_F2P_INTR 1 [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_IRQ_F2P_MODE REVERSE [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_MIO_0_PULLUP {enabled} [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_MIO_9_PULLUP {enabled} [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_MIO_10_PULLUP {enabled} [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_MIO_11_PULLUP {enabled} [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_MIO_48_PULLUP {enabled} [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_MIO_49_PULLUP {disabled} [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_MIO_53_PULLUP {enabled} [get_bd_cells ps_sys_7]
+
+# DDR MT41K256M16 HA-125 (32M, 16bit, 8banks)
+
+set_property CONFIG.PCW_UIPARAM_DDR_PARTNO {MT41K256M16 RE-125} [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_UIPARAM_DDR_BUS_WIDTH {16 Bit} [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_UIPARAM_DDR_USE_INTERNAL_VREF 0 [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_UIPARAM_DDR_TRAIN_WRITE_LEVEL 1 [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_UIPARAM_DDR_TRAIN_READ_GATE 1 [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_UIPARAM_DDR_TRAIN_DATA_EYE 1 [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_0 0.048 [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_1 0.050 [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_UIPARAM_DDR_BOARD_DELAY0 0.241 [get_bd_cells ps_sys_7]
+set_property CONFIG.PCW_UIPARAM_DDR_BOARD_DELAY1 0.240 [get_bd_cells ps_sys_7]
 
 ip_vlvn_version_check "xilinx.com:ip:proc_sys_reset:5.0"
 
@@ -54,7 +88,7 @@ connect_bd_net [get_bd_pins ps_sys_7/FCLK_CLK0] [get_bd_pins ps_sys_reset/slowes
 make_bd_pins_external  [get_bd_pins ps_sys_reset/peripheral_aresetn]
 set_property name peripheral_aresetn [get_bd_ports peripheral_aresetn_0]
 
-make_bd_intf_pins_external  [get_bd_intf_pins ps_sys_7/DDR]
+make_bd_intf_pins_external  [get_bd_intf_pins ps_sys_7/DDR]zc702
 set_property name DDR [get_bd_intf_ports DDR_0]
 
 make_bd_intf_pins_external  [get_bd_intf_pins ps_sys_7/FIXED_IO]
