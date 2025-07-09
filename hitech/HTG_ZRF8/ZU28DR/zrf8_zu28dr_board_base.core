@@ -6,11 +6,11 @@ description: Files to help generate base zrf8 zu28dr board items
 filesets:
   src:
     files:
-      - zcu102_board_base.tcl : {file_type: tclSource}
+      - zrf8_zu28dr_board_base.tcl : {file_type: tclSource}
     
   dep:
     depend:
-      - AFRL:utility:zrf8_zu28dr_board_base_constr:1.0.0
+      - AFRL:utility:hitech_zrf8_zu28dr_board_base_constr:1.0.0
       - AFRL:utility:tcl_helper_check:1.0.0
 
 targets:

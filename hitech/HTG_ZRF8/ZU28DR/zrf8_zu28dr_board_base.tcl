@@ -14,8 +14,6 @@ update_compile_order -fileset sources_1
 
 ip_vlvn_version_check "xilinx.com:ip:zynq_ultra_ps_e:3.4"
 
-create_bd_cell -type ip -vlnv xilinx.com:ip:zynq_ultra_ps_e:3.4 sys_ps8
-
 # set_property CONFIG.PSU__PSS_REF_CLK__FREQMHZ 33.333333333 [get_bd_cells sys_ps8]
 # set_property CONFIG.PSU__USE__IRQ1 {1} [get_bd_cells sys_ps8]
 # set_property CONFIG.PSU__USE__S_AXI_GP2 {1} [get_bd_cells sys_ps8]
@@ -318,13 +316,13 @@ Port;FD4A0000;FD4AFFFF;1|FPD;DPDMA;FD4C0000;FD4CFFFF;1|FPD;DDR_XMPU5_CFG;FD05000
   CONFIG.PSU__SD1__PERIPHERAL__IO {MIO 39 .. 51} \
   CONFIG.PSU__SD1__SLOT_TYPE {SD 3.0} \
   CONFIG.PSU__SPI0__GRP_SS0__IO {EMIO} \
-  CONFIG.PSU__SPI0__GRP_SS1__ENABLE {0} \
-  CONFIG.PSU__SPI0__GRP_SS2__ENABLE {0} \
+  CONFIG.PSU__SPI0__GRP_SS1__ENABLE {1} \
+  CONFIG.PSU__SPI0__GRP_SS2__ENABLE {1} \
   CONFIG.PSU__SPI0__PERIPHERAL__ENABLE {1} \
   CONFIG.PSU__SPI0__PERIPHERAL__IO {EMIO} \
   CONFIG.PSU__SPI1__GRP_SS0__IO {EMIO} \
-  CONFIG.PSU__SPI1__GRP_SS1__ENABLE {0} \
-  CONFIG.PSU__SPI1__GRP_SS2__ENABLE {0} \
+  CONFIG.PSU__SPI1__GRP_SS1__ENABLE {1} \
+  CONFIG.PSU__SPI1__GRP_SS2__ENABLE {1} \
   CONFIG.PSU__SPI1__PERIPHERAL__ENABLE {1} \
   CONFIG.PSU__SPI1__PERIPHERAL__IO {EMIO} \
   CONFIG.PSU__TSU__BUFG_PORT_PAIR {0} \
