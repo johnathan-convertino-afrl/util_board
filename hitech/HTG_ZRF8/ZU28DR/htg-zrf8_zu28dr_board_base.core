@@ -1,0 +1,18 @@
+CAPI=2:
+
+name: AFRL:utility:htg-zrf8_zu28dr_board_base:1.0.0
+description: Files to help generate base htg-zrf8_zu28dr board items
+
+filesets:
+  src:
+    files:
+      - htg-zrf8_zu28dr_board_base.tcl  : {file_type: tclSource}
+
+  dep:
+    depend:
+      - AFRL:utility:ad_adrv9361-z7035_board_base_constr:1.0.0
+      - AFRL:utility:tcl_helper_check:1.0.0
+    
+targets:
+  default: &default
+    filesets: [src, dep]
