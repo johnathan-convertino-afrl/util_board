@@ -120,32 +120,44 @@ set_property -dict [list \
     CONFIG.PSU_MIO_37_SLEW {fast} \
     CONFIG.PSU_MIO_38_INPUT_TYPE {cmos} \
     CONFIG.PSU_MIO_38_POLARITY {Default} \
-    CONFIG.PSU_MIO_39_INPUT_TYPE {schmitt} \
+    CONFIG.PSU_MIO_39_INPUT_TYPE {cmos} \
+    CONFIG.PSU_MIO_39_PULLUPDOWN {disable} \
     CONFIG.PSU_MIO_39_SLEW {slow} \
     CONFIG.PSU_MIO_3_INPUT_TYPE {schmitt} \
     CONFIG.PSU_MIO_3_SLEW {slow} \
-    CONFIG.PSU_MIO_40_INPUT_TYPE {schmitt} \
+    CONFIG.PSU_MIO_40_INPUT_TYPE {cmos} \
+    CONFIG.PSU_MIO_40_PULLUPDOWN {disable} \
     CONFIG.PSU_MIO_40_SLEW {slow} \
-    CONFIG.PSU_MIO_41_INPUT_TYPE {schmitt} \
+    CONFIG.PSU_MIO_41_INPUT_TYPE {cmos} \
+    CONFIG.PSU_MIO_41_PULLUPDOWN {disable} \
     CONFIG.PSU_MIO_41_SLEW {slow} \
-    CONFIG.PSU_MIO_42_INPUT_TYPE {schmitt} \
+    CONFIG.PSU_MIO_42_INPUT_TYPE {cmos} \
+    CONFIG.PSU_MIO_42_PULLUPDOWN {disable} \
     CONFIG.PSU_MIO_42_SLEW {slow} \
     CONFIG.PSU_MIO_43_INPUT_TYPE {cmos} \
     CONFIG.PSU_MIO_43_POLARITY {Default} \
-    CONFIG.PSU_MIO_44_POLARITY {Default} \
-    CONFIG.PSU_MIO_45_INPUT_TYPE {schmitt} \
-    CONFIG.PSU_MIO_46_INPUT_TYPE {schmitt} \
+    CONFIG.PSU_MIO_44_PULLUPDOWN {disable} \
+    CONFIG.PSU_MIO_45_INPUT_TYPE {cmos} \
+    CONFIG.PSU_MIO_45_PULLUPDOWN {disable} \
+    CONFIG.PSU_MIO_46_INPUT_TYPE {cmos} \
+    CONFIG.PSU_MIO_46_PULLUPDOWN {disable} \
     CONFIG.PSU_MIO_46_SLEW {slow} \
-    CONFIG.PSU_MIO_47_INPUT_TYPE {schmitt} \
+    CONFIG.PSU_MIO_47_INPUT_TYPE {cmos} \
+    CONFIG.PSU_MIO_47_PULLUPDOWN {disable} \
     CONFIG.PSU_MIO_47_SLEW {slow} \
-    CONFIG.PSU_MIO_48_INPUT_TYPE {schmitt} \
+    CONFIG.PSU_MIO_48_INPUT_TYPE {cmos} \
+    CONFIG.PSU_MIO_48_PULLUPDOWN {disable} \
     CONFIG.PSU_MIO_48_SLEW {slow} \
-    CONFIG.PSU_MIO_49_INPUT_TYPE {schmitt} \
+    CONFIG.PSU_MIO_49_INPUT_TYPE {cmos} \
+    CONFIG.PSU_MIO_49_PULLUPDOWN {disable} \
     CONFIG.PSU_MIO_49_SLEW {slow} \
     CONFIG.PSU_MIO_4_INPUT_TYPE {schmitt} \
     CONFIG.PSU_MIO_4_SLEW {slow} \
-    CONFIG.PSU_MIO_50_INPUT_TYPE {schmitt} \
+    CONFIG.PSU_MIO_50_INPUT_TYPE {cmos} \
+    CONFIG.PSU_MIO_50_PULLUPDOWN {disable} \
     CONFIG.PSU_MIO_50_SLEW {slow} \
+    CONFIG.PSU_MIO_51_DRIVE_STRENGTH {12} \
+    CONFIG.PSU_MIO_51_PULLUPDOWN {disable} \
     CONFIG.PSU_MIO_51_SLEW {slow} \
     CONFIG.PSU_MIO_5_SLEW {slow} \
     CONFIG.PSU_MIO_6_DRIVE_STRENGTH {12} \
@@ -158,9 +170,9 @@ set_property -dict [list \
     CONFIG.PSU_MIO_9_SLEW {slow} \
     CONFIG.PSU_MIO_TREE_PERIPHERALS {Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#GPIO0 MIO#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad\
 SPI Flash#Quad SPI Flash#GPIO0 MIO#I2C 0#I2C 0#I2C 1#I2C 1#UART 0#UART 0#GPIO0 MIO#GPIO0 MIO#GPIO0 MIO#GPIO0 MIO#GPIO0 MIO#GPIO0 MIO#GPIO1 MIO#DPAUX#DPAUX#DPAUX#DPAUX#GPIO1 MIO#GPIO1 MIO#GPIO1 MIO#GPIO1\
-MIO#GPIO1 MIO#GPIO1 MIO#GPIO1 MIO#GPIO1 MIO#SD 1#SD 1#SD 1#SD 1#GPIO1 MIO#GPIO1 MIO#SD 1#SD 1#SD 1#SD 1#SD 1#SD 1#SD 1#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#Gem 3#Gem\
-3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#MDIO 3#MDIO 3} \
-    CONFIG.PSU_MIO_TREE_SIGNALS {sclk_out#miso_mo1#mo2#mo3#mosi_mi0#n_ss_out#gpio0[6]#n_ss_out_upper#mo_upper[0]#mo_upper[1]#mo_upper[2]#mo_upper[3]#sclk_out_upper#gpio0[13]#scl_out#sda_out#scl_out#sda_out#rxd#txd#gpio0[20]#gpio0[21]#gpio0[22]#gpio0[23]#gpio0[24]#gpio0[25]#gpio1[26]#dp_aux_data_out#dp_hot_plug_detect#dp_aux_data_oe#dp_aux_data_in#gpio1[31]#gpio1[32]#gpio1[33]#gpio1[34]#gpio1[35]#gpio1[36]#gpio1[37]#gpio1[38]#sdio1_data_out[4]#sdio1_data_out[5]#sdio1_data_out[6]#sdio1_data_out[7]#gpio1[43]#gpio1[44]#sdio1_cd_n#sdio1_data_out[0]#sdio1_data_out[1]#sdio1_data_out[2]#sdio1_data_out[3]#sdio1_cmd_out#sdio1_clk_out#ulpi_clk_in#ulpi_dir#ulpi_tx_data[2]#ulpi_nxt#ulpi_tx_data[0]#ulpi_tx_data[1]#ulpi_stp#ulpi_tx_data[3]#ulpi_tx_data[4]#ulpi_tx_data[5]#ulpi_tx_data[6]#ulpi_tx_data[7]#rgmii_tx_clk#rgmii_txd[0]#rgmii_txd[1]#rgmii_txd[2]#rgmii_txd[3]#rgmii_tx_ctl#rgmii_rx_clk#rgmii_rxd[0]#rgmii_rxd[1]#rgmii_rxd[2]#rgmii_rxd[3]#rgmii_rx_ctl#gem3_mdc#gem3_mdio_out}\
+MIO#GPIO1 MIO#GPIO1 MIO#GPIO1 MIO#GPIO1 MIO#SD 1#SD 1#SD 1#SD 1#GPIO1 MIO#SD 1#SD 1#SD 1#SD 1#SD 1#SD 1#SD 1#SD 1#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#Gem 3#Gem 3#Gem\
+3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#MDIO 3#MDIO 3} \
+    CONFIG.PSU_MIO_TREE_SIGNALS {sclk_out#miso_mo1#mo2#mo3#mosi_mi0#n_ss_out#gpio0[6]#n_ss_out_upper#mo_upper[0]#mo_upper[1]#mo_upper[2]#mo_upper[3]#sclk_out_upper#gpio0[13]#scl_out#sda_out#scl_out#sda_out#rxd#txd#gpio0[20]#gpio0[21]#gpio0[22]#gpio0[23]#gpio0[24]#gpio0[25]#gpio1[26]#dp_aux_data_out#dp_hot_plug_detect#dp_aux_data_oe#dp_aux_data_in#gpio1[31]#gpio1[32]#gpio1[33]#gpio1[34]#gpio1[35]#gpio1[36]#gpio1[37]#gpio1[38]#sdio1_data_out[4]#sdio1_data_out[5]#sdio1_data_out[6]#sdio1_data_out[7]#gpio1[43]#sdio1_wp#sdio1_cd_n#sdio1_data_out[0]#sdio1_data_out[1]#sdio1_data_out[2]#sdio1_data_out[3]#sdio1_cmd_out#sdio1_clk_out#ulpi_clk_in#ulpi_dir#ulpi_tx_data[2]#ulpi_nxt#ulpi_tx_data[0]#ulpi_tx_data[1]#ulpi_stp#ulpi_tx_data[3]#ulpi_tx_data[4]#ulpi_tx_data[5]#ulpi_tx_data[6]#ulpi_tx_data[7]#rgmii_tx_clk#rgmii_txd[0]#rgmii_txd[1]#rgmii_txd[2]#rgmii_txd[3]#rgmii_tx_ctl#rgmii_rx_clk#rgmii_rxd[0]#rgmii_rxd[1]#rgmii_rxd[2]#rgmii_rxd[3]#rgmii_rx_ctl#gem3_mdc#gem3_mdio_out}\
 \
     CONFIG.PSU_SD1_INTERNAL_BUS_WIDTH {8} \
     CONFIG.PSU_USB3__DUAL_CLOCK_ENABLE {1} \
@@ -222,8 +234,8 @@ MIO#GPIO1 MIO#GPIO1 MIO#GPIO1 MIO#GPIO1 MIO#SD 1#SD 1#SD 1#SD 1#GPIO1 MIO#GPIO1 
     CONFIG.PSU__CRL_APB__QSPI_REF_CTRL__ACT_FREQMHZ {124.998749} \
     CONFIG.PSU__CRL_APB__QSPI_REF_CTRL__FREQMHZ {125} \
     CONFIG.PSU__CRL_APB__SDIO0_REF_CTRL__ACT_FREQMHZ {199.998001} \
-    CONFIG.PSU__CRL_APB__SDIO1_REF_CTRL__ACT_FREQMHZ {187.498123} \
-    CONFIG.PSU__CRL_APB__SDIO1_REF_CTRL__FREQMHZ {200} \
+    CONFIG.PSU__CRL_APB__SDIO1_REF_CTRL__ACT_FREQMHZ {49.999500} \
+    CONFIG.PSU__CRL_APB__SDIO1_REF_CTRL__FREQMHZ {50} \
     CONFIG.PSU__CRL_APB__SDIO1_REF_CTRL__SRCSEL {IOPLL} \
     CONFIG.PSU__CRL_APB__SPI0_REF_CTRL__ACT_FREQMHZ {99.999001} \
     CONFIG.PSU__CRL_APB__SPI0_REF_CTRL__FREQMHZ {100} \
@@ -379,7 +391,8 @@ Port;FD4A0000;FD4AFFFF;1|FPD;DPDMA;FD4C0000;FD4CFFFF;1|FPD;DDR_XMPU5_CFG;FD05000
     CONFIG.PSU__SD1__GRP_CD__ENABLE {1} \
     CONFIG.PSU__SD1__GRP_CD__IO {MIO 45} \
     CONFIG.PSU__SD1__GRP_POW__ENABLE {0} \
-    CONFIG.PSU__SD1__GRP_WP__ENABLE {0} \
+    CONFIG.PSU__SD1__GRP_WP__ENABLE {1} \
+    CONFIG.PSU__SD1__GRP_WP__IO {MIO 44} \
     CONFIG.PSU__SD1__PERIPHERAL__ENABLE {1} \
     CONFIG.PSU__SD1__PERIPHERAL__IO {MIO 39 .. 51} \
     CONFIG.PSU__SD1__SLOT_TYPE {SD 3.0} \
