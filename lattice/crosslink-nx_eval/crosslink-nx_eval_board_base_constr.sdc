@@ -37,3 +37,4 @@ ldc_set_location -site {L19} [get_ports {leds[7]}]
 ldc_set_port -iobuf {IO_TYPE=LVCMOS33} [get_ports {leds[7]}]
 
 ldc_set_location -site {G19} [get_ports resetn]
+ldc_set_port -iobuf {IO_TYPE=LVCMOS33} [get_ports {resetn}]
