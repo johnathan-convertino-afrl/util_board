@@ -5,11 +5,9 @@
 #### - uncomment the lines corresponding to used pins
 #### - rename the used ports (in each line, after get_ports) according to the top level signal names in the project
 
-set_property -dict {PACKAGE_PIN E3 IOSTANDARD LVCMOS33} [get_ports clk]
-
 ## Clock Signal
-set_property -dict { PACKAGE_PIN AD11  IOSTANDARD LVDS     } [get_ports { clk_n }]; #IO_L12N_T1_MRCC_33 Sch=sysclk_n
-set_property -dict { PACKAGE_PIN AD12  IOSTANDARD LVDS     } [get_ports { clk_p }]; #IO_L12P_T1_MRCC_33 Sch=sysclk_p
+set_property -dict { PACKAGE_PIN AD11  IOSTANDARD LVDS} [get_ports { clk_n }]; #IO_L12N_T1_MRCC_33 Sch=sysclk_n
+set_property -dict { PACKAGE_PIN AD12  IOSTANDARD LVDS} [get_ports { clk_p }]; #IO_L12P_T1_MRCC_33 Sch=sysclk_p
 
 create_clock -period 5.000 -name board_clk_200mhz -waveform {0.000 2.500} -add [get_ports clk_p]
 
