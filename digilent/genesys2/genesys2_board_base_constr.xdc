@@ -44,11 +44,11 @@ set_property -dict { PACKAGE_PIN P27   IOSTANDARD LVCMOS33 } [get_ports { slide_
 #set_property -dict { PACKAGE_PIN AE20  IOSTANDARD LVCMOS33  PULLUP true } [get_ports { ps2_data_0 }]; #IO_25_12 Sch=ps2_data[0]
 
 ## uart
-set_property PACKAGE_PIN Y23 [get_ports ftdi_tx]
+set_property PACKAGE_PIN Y20 [get_ports ftdi_tx]
 set_property IOSTANDARD LVCMOS33 [get_ports ftdi_tx]
 set_property SLEW FAST [get_ports ftdi_tx]
 set_property DRIVE 4 [get_ports ftdi_tx]
-set_property -dict {PACKAGE_PIN Y20 IOSTANDARD LVCMOS33} [get_ports ftdi_rx]
+set_property -dict {PACKAGE_PIN Y23 IOSTANDARD LVCMOS33} [get_ports ftdi_rx]
 
 ## SD Card
 set_property -dict { PACKAGE_PIN P28   IOSTANDARD LVCMOS33 } [get_ports { sd_cd }]; #IO_L8N_T1_D12_14 Sch=sd_cd
