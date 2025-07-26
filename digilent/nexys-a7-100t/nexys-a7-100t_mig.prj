@@ -21,8 +21,8 @@
         <MemoryDevice>DDR2_SDRAM/Components/MT47H64M16HR-25E</MemoryDevice>
         <TimePeriod>5000</TimePeriod>
         <VccAuxIO>1.8V</VccAuxIO>
-        <PHYRatio>2:1</PHYRatio>
-        <InputClkFreq>200.00</InputClkFreq>
+        <PHYRatio>4:1</PHYRatio>
+        <InputClkFreq>100.00</InputClkFreq>
         <UIExtraClocks>0</UIExtraClocks>
         <MMCMClkOut0> 1.000</MMCMClkOut0>
         <MMCMClkOut1>1</MMCMClkOut1>
