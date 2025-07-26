@@ -11,7 +11,7 @@
     <TargetFPGA>xc7a100t-csg324/-1</TargetFPGA>
     <Version>1.9</Version>
     <SystemClock>No Buffer</SystemClock>
-    <ReferenceClock>Use System Clock</ReferenceClock>
+    <ReferenceClock>No Buffer</ReferenceClock>
     <SysResetPolarity>ACTIVE LOW</SysResetPolarity>
     <BankSelectionFlag>FALSE</BankSelectionFlag>
     <InternalVref>1</InternalVref>

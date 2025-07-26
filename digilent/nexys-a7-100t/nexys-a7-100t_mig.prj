@@ -11,7 +11,7 @@
     <TargetFPGA>xc7a100t-csg324/-1</TargetFPGA>
     <Version>1.9</Version>
     <SystemClock>No Buffer</SystemClock>
-    <ReferenceClock>Use System Clock</ReferenceClock>
+    <ReferenceClock>No Buffer</ReferenceClock>
     <SysResetPolarity>ACTIVE LOW</SysResetPolarity>
     <BankSelectionFlag>FALSE</BankSelectionFlag>
     <InternalVref>1</InternalVref>
@@ -24,6 +24,7 @@
         <PHYRatio>4:1</PHYRatio>
         <InputClkFreq>100.00</InputClkFreq>
         <UIExtraClocks>0</UIExtraClocks>
+        <MMCM_VCO>1200</MMCM_VCO>
         <MMCMClkOut0> 1.000</MMCMClkOut0>
         <MMCMClkOut1>1</MMCMClkOut1>
         <MMCMClkOut2>1</MMCMClkOut2>
@@ -94,7 +95,7 @@
             <Pin PADName="No connect" Bank="Select Bank" name="tg_compare_error" />
         </System_Control>
         <TimingParameters>
-            <Parameters twtr="7.5" trrd="10" trefi="7.8" tfaw="45" trtp="7.5" trfc="127.5" trp="12.5" tras="40" trcd="15" />
+            <Parameters twtr="7.5" trrd="10" trefi="7.8" tfaw="45" trtp="7.5" trfc="127.5" trp="12.5" tras="40" trcd="15"/>
         </TimingParameters>
         <mrBurstLength name="Burst Length" >8</mrBurstLength>
         <mrBurstType name="Burst Type" >Sequential</mrBurstType>
