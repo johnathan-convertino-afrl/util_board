@@ -1,0 +1,12 @@
+CAPI=2:
+
+name: AFRL:utility:digilent_NetFPGA-1G-CML_board_base_ddr_native_cfg:1.0.0
+description: Files for native DDR config
+
+filesets:
+  src:
+    files:
+      - NetFPGA-1G-CML_native_mig.prj : {file_type : user, copyto : ./ddr_mig.prj}
+targets:
+  default: &default
+    filesets: [src]
