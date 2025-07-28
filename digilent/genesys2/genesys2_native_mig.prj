@@ -24,7 +24,7 @@
     <PHYRatio>4:1</PHYRatio>
     <InputClkFreq>200.00</InputClkFreq>
     <UIExtraClocks>0</UIExtraClocks>
-    <MMCM_VCO>900</MMCM_VCO>
+    <MMCM_VCO>800</MMCM_VCO>
     <MMCMClkOut0> 1.000</MMCMClkOut0>
     <MMCMClkOut1>1</MMCMClkOut1>
     <MMCMClkOut2>1</MMCMClkOut2>
