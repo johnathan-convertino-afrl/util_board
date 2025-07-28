@@ -6,7 +6,9 @@ description: Files for AXI DDR config
 filesets:
   src:
     files:
-      - kc706_system_mig.prj : {file_type : user, copyto : ./ddr_mig.prj}
+      - kc705_mig.prj : {file_type : user, copyto : ./ddr_mig.prj}
+      - kc705_board_base_ddr_constr.xdc : {file_type : xdc}
+      
 targets:
   default: &default
     filesets: [src]
