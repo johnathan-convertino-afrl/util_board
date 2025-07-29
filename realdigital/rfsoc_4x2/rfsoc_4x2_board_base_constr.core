@@ -1,0 +1,13 @@
+CAPI=2:
+
+name: AFRL:utility:realdigital_rfsoc_4x2_board_base_constr:1.0.0
+description: Files to help generate base rfsoc_4x2 board items
+
+filesets:
+  src:
+    files:
+      - rfsoc_4x2_board_base_constr.tcl : {file_type : SDC}
+    
+targets:
+  default: &default
+    filesets: [src]
