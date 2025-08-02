@@ -1,7 +1,7 @@
 CAPI=2:
 
 name: AFRL:utility:trenz_datastormdaq_board_base:1.0.0
-description: Files to help generate base datastormdaq board items
+description: Files to help generate base datastormdaq (tei0022) board items
 
 filesets:
   src:
