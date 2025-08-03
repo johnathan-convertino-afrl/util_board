@@ -1,0 +1,13 @@
+CAPI=2:
+
+name: AFRL:utility:hitech_zrf8_zu28dr_board_base_constr:1.0.0
+description: Files to help generate base zrf8_zu28dr board items
+
+filesets:
+  src:
+    files:
+      - zrf8_zu28dr_board_base_constr.tcl : {file_type : SDC}
+    
+targets:
+  default: &default
+    filesets: [src]

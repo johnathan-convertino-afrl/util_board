@@ -1,7 +1,7 @@
 CAPI=2:
 
 name: AFRL:utility:lattice_crosslink-nx_eval_board_base:1.0.0
-description: Files to help generate base crosslink-nx eval
+description: Files to help generate base crosslink-nx eval, lattice radiant 2024.2
 
 filesets:
   src:
@@ -23,6 +23,6 @@ targets:
 
 scripts:
   ip_gen_clk:
-    cmd : [ipgenwrap, -cfg, ip/clk_wiz_1/clk_wiz_1.cfg, -name, clk_wiz_1, -vlnv, latticesemi.com:module:pll:1.8.0, -p, LIFCL-40, -t, CABGA400, -sp, 9_High-Performance_1.0V, -f, LIFCL, -o, ip/clk_wiz_1/]
+    cmd : [ipgenwrap, -cfg, ip/clk_wiz_1/clk_wiz_1.cfg, -name, clk_wiz_1, -vlnv, latticesemi.com:module:pll:1.9.0, -p, LIFCL-40, -t, CABGA400, -sp, 9_High-Performance_1.0V, -f, LIFCL, -o, ip/clk_wiz_1/, -op, Commercial]
   ip_gen_osc:
-    cmd : [ipgenwrap, -cfg, ip/clk_osc_1/clk_osc_1.cfg, -name, clk_osc_1, -vlnv, latticesemi.com:module:osc:1.4.0, -p, LIFCL-40, -t, CABGA400, -sp, 9_High-Performance_1.0V, -f, LIFCL, -o, ip/clk_osc_1/]
+    cmd : [ipgenwrap, -cfg, ip/clk_osc_1/clk_osc_1.cfg, -name, clk_osc_1, -vlnv, latticesemi.com:module:osc:1.4.0, -p, LIFCL-40, -t, CABGA400, -sp, 9_High-Performance_1.0V, -f, LIFCL, -o, ip/clk_osc_1/, -op, Commercial]

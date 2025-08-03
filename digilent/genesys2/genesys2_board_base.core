@@ -1,0 +1,18 @@
+CAPI=2:
+
+name: AFRL:utility:digilent_genesys2_board_base:1.0.0
+description: Files to help generate base genesis 2 board items
+
+filesets:
+  src:
+    files:
+      - genesys2_board_base.tcl  : {file_type: tclSource}
+
+  dep:
+    depend:
+      - AFRL:utility:digilent_genesys2_board_base_constr:1.0.0
+      - AFRL:utility:tcl_helper_check:1.0.0
+    
+targets:
+  default: &default
+    filesets: [src, dep]
