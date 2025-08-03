@@ -570,6 +570,77 @@ proc do_create_system_ps_wrapper {} {
   set_instance_parameter_value sys_axi_bridge {WRITE_DATA_USER_WIDTH} {32}
   set_instance_parameter_value sys_axi_bridge {WRITE_ISSUING_CAPABILITY} {16}
   set_instance_parameter_value sys_axi_bridge {WRITE_RESP_USER_WIDTH} {32}
+  
+  add_instance sys_axi_bridge_translator altera_merlin_axi_translator
+  set_instance_parameter_value sys_axi_bridge_translator {COMBINED_ACCEPTANCE_CAPABILITY} {16}
+  set_instance_parameter_value sys_axi_bridge_translator {COMBINED_ISSUING_CAPABILITY} {16}
+  set_instance_parameter_value sys_axi_bridge_translator {DATA_WIDTH} {32}
+  set_instance_parameter_value sys_axi_bridge_translator {M0_ADDR_WIDTH} {32}
+  set_instance_parameter_value sys_axi_bridge_translator {M0_AXI_VERSION} {AXI4Lite}
+  set_instance_parameter_value sys_axi_bridge_translator {M0_ID_WIDTH} {8}
+  set_instance_parameter_value sys_axi_bridge_translator {M0_READ_ADDR_USER_WIDTH} {32}
+  set_instance_parameter_value sys_axi_bridge_translator {M0_READ_DATA_USER_WIDTH} {32}
+  set_instance_parameter_value sys_axi_bridge_translator {M0_WRITE_ADDR_USER_WIDTH} {32}
+  set_instance_parameter_value sys_axi_bridge_translator {M0_WRITE_DATA_USER_WIDTH} {32}
+  set_instance_parameter_value sys_axi_bridge_translator {M0_WRITE_RESPONSE_DATA_USER_WIDTH} {32}
+  set_instance_parameter_value sys_axi_bridge_translator {READ_ACCEPTANCE_CAPABILITY} {16}
+  set_instance_parameter_value sys_axi_bridge_translator {READ_DATA_REORDERING_DEPTH} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {READ_ISSUING_CAPABILITY} {16}
+  set_instance_parameter_value sys_axi_bridge_translator {S0_ADDR_WIDTH} {18}
+  set_instance_parameter_value sys_axi_bridge_translator {S0_AXI_VERSION} {AXI4}
+  set_instance_parameter_value sys_axi_bridge_translator {S0_ID_WIDTH} {8}
+  set_instance_parameter_value sys_axi_bridge_translator {S0_READ_ADDR_USER_WIDTH} {32}
+  set_instance_parameter_value sys_axi_bridge_translator {S0_READ_DATA_USER_WIDTH} {32}
+  set_instance_parameter_value sys_axi_bridge_translator {S0_WRITE_ADDR_USER_WIDTH} {32}
+  set_instance_parameter_value sys_axi_bridge_translator {S0_WRITE_DATA_USER_WIDTH} {32}
+  set_instance_parameter_value sys_axi_bridge_translator {S0_WRITE_RESPONSE_DATA_USER_WIDTH} {32}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_M0_ARCACHE} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_M0_ARLOCK} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_M0_ARPROT} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_M0_ARQOS} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_M0_ARREGION} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_M0_ARUSER} {0}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_M0_AWCACHE} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_M0_AWLOCK} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_M0_AWPROT} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_M0_AWQOS} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_M0_AWREGION} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_M0_AWUSER} {0}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_M0_BRESP} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_M0_BUSER} {0}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_M0_RRESP} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_M0_RUSER} {0}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_M0_WLAST} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_M0_WUSER} {0}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_S0_ARBURST} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_S0_ARCACHE} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_S0_ARID} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_S0_ARLEN} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_S0_ARLOCK} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_S0_ARQOS} {0}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_S0_ARREGION} {0}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_S0_ARSIZE} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_S0_ARUSER} {0}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_S0_AWBURST} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_S0_AWCACHE} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_S0_AWID} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_S0_AWLEN} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_S0_AWLOCK} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_S0_AWQOS} {0}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_S0_AWREGION} {0}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_S0_AWSIZE} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_S0_AWUSER} {0}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_S0_BID} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_S0_BRESP} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_S0_BUSER} {0}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_S0_RID} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_S0_RLAST} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_S0_RRESP} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_S0_RUSER} {0}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_S0_WSTRB} {1}
+  set_instance_parameter_value sys_axi_bridge_translator {USE_S0_WUSER} {0}
+  set_instance_parameter_value sys_axi_bridge_translator {WRITE_ACCEPTANCE_CAPABILITY} {16}
+  set_instance_parameter_value sys_axi_bridge_translator {WRITE_ISSUING_CAPABILITY} {16}
 
   add_instance sys_irq_bridge altera_irq_bridge
   set_instance_parameter_value sys_irq_bridge {IRQ_N} {0}
@@ -629,9 +700,16 @@ proc do_create_system_ps_wrapper {} {
   set_instance_parameter_value spi_0 {targetSlaveSelectToSClkDelay} {0.0}
 
   # connections and connection parameters
+  add_connection sys_axi_bridge.m0 sys_axi_bridge_translator.s0
+  set_connection_parameter_value sys_axi_bridge.m0/sys_axi_bridge_translator.s0 arbitrationPriority {1}
+  set_connection_parameter_value sys_axi_bridge.m0/sys_axi_bridge_translator.s0 baseAddress {0x0000}
+  set_connection_parameter_value sys_axi_bridge.m0/sys_axi_bridge_translator.s0 defaultConnection {0}
+  
   add_connection sys_clk.out_clk_1 spi_0.clk clock
 
   add_connection sys_clk.out_clk_1 sys_axi_bridge.clk clock
+  
+  add_connection sys_clk.out_clk_1 sys_axi_bridge_translator.clk
 
   add_connection sys_clk.out_clk_1 sys_gpio_bd.clk clock
 
@@ -698,6 +776,8 @@ proc do_create_system_ps_wrapper {} {
   add_connection sys_rst.out_reset_1 sys_axi_bridge.clk_reset reset
 
   add_connection sys_rst.out_reset_1 sys_gpio_bd.reset reset
+  
+  add_connection sys_rst.out_reset_1 sys_axi_bridge_translator.clk_reset
 
   add_connection sys_rst.out_reset_1 sys_gpio_in.reset reset
 
@@ -708,8 +788,8 @@ proc do_create_system_ps_wrapper {} {
   # exported interfaces
   add_interface irq interrupt receiver
   set_interface_property irq EXPORT_OF sys_irq_bridge.receiver_irq
-  add_interface m_axi altera_axi4 master
-  set_interface_property m_axi EXPORT_OF sys_axi_bridge.m0
+  add_interface m_axi altera_axi4lite master
+  set_interface_property m_axi EXPORT_OF sys_axi_bridge_translator.m0
   add_interface s_axi_aresetn reset source
   set_interface_property s_axi_aresetn EXPORT_OF sys_rst.out_reset
   add_interface s_axi_clk clock source
