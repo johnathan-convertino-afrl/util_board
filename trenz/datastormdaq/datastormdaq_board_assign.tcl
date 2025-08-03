@@ -3,7 +3,9 @@
 
 qexec "$quartus(quartus_rootpath)/sopc_builder/bin/qsys-script --quartus-project=$quartus(project)  --script=datastormdaq_board_base.tcl"
 
-qexec "$quartus(quartus_rootpath)/sopc_builder/bin/qsys-generate system_ps_wrapper.qsys --quartus-project=$quartus(project) --synthesis=VERILOG"
+qexec "$quartus(quartus_rootpath)/sopc_builder/bin/qsys-generate system_ps_wrapper.qsys --block-symbol-file --synthesis=VERILOG"
+
+set_global_assignment -name QIP_FILE system_ps_wrapper/synthesis/system_ps_wrapper.qip
 
 set_location_assignment PIN_AF14 -to sys_clk
 set_instance_assignment -name IO_STANDARD "1.5 V" -to sys_clk
@@ -528,22 +530,4 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to nc2
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to nc3
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to nc4
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to nc5
-
-# globals
-
-set_global_assignment -name USE_DLL_FREQUENCY_FOR_DQS_DELAY_CHAIN ON
-set_global_assignment -name UNIPHY_SEQUENCER_DQS_CONFIG_ENABLE ON
-set_global_assignment -name OPTIMIZE_MULTI_CORNER_TIMING ON
-set_global_assignment -name OPTIMIZE_HOLD_TIMING "ALL PATHS"
-set_global_assignment -name ECO_REGENERATE_REPORT ON
-set_global_assignment -name SYNCHRONIZER_IDENTIFICATION AUTO
-set_global_assignment -name ENABLE_ADVANCED_IO_TIMING ON
-set_global_assignment -name USE_TIMEQUEST_TIMING_ANALYZER ON
-set_global_assignment -name SYNTH_TIMING_DRIVEN_SYNTHESIS ON
-set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
-set_global_assignment -name TIMEQUEST_DO_REPORT_TIMING ON
-set_global_assignment -name TIMEQUEST_DO_CCPP_REMOVAL ON
-set_global_assignment -name TIMEQUEST_REPORT_SCRIPT $ad_hdl_dir/projects/scripts/adi_tquest.tcl
-set_global_assignment -name ON_CHIP_BITSTREAM_DECOMPRESSION OFF
-set_global_assignment -name OPTIMIZATION_MODE "AGGRESSIVE PERFORMANCE"
 

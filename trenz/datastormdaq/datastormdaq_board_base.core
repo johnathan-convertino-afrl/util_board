@@ -6,8 +6,8 @@ description: Files to help generate base datastormdaq (tei0022) board items
 filesets:
   src:
     files:
-      - datastorm_board_assign.tcl : {file_type: tclSource}
-      - datastorm_board_base.tcl : {file_type: user, copyto : .}
+      - datastormdaq_board_assign.tcl : {file_type: tclSource}
+      - datastormdaq_board_base.tcl : {file_type: user, copyto : .}
 
   dep:
     depend:
