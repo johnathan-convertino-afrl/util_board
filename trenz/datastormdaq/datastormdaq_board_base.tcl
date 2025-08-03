@@ -114,7 +114,7 @@ proc do_create_system_ps_wrapper {} {
   set_instance_parameter_value sys_hps {F2SCLK_SDRAMCLK_Enable} {0}
   set_instance_parameter_value sys_hps {F2SCLK_WARMRST_Enable} {0}
   set_instance_parameter_value sys_hps {F2SDRAM_Type} {AXI-3}
-  set_instance_parameter_value sys_hps {F2SDRAM_Width} {32}
+  set_instance_parameter_value sys_hps {F2SDRAM_Width} {64}
   set_instance_parameter_value sys_hps {F2SINTERRUPT_Enable} {1}
   set_instance_parameter_value sys_hps {F2S_Width} {0}
   set_instance_parameter_value sys_hps {FIX_READ_LATENCY} {8}
@@ -575,7 +575,7 @@ proc do_create_system_ps_wrapper {} {
   set_instance_parameter_value sys_axi_bridge_translator {COMBINED_ACCEPTANCE_CAPABILITY} {16}
   set_instance_parameter_value sys_axi_bridge_translator {COMBINED_ISSUING_CAPABILITY} {16}
   set_instance_parameter_value sys_axi_bridge_translator {DATA_WIDTH} {32}
-  set_instance_parameter_value sys_axi_bridge_translator {M0_ADDR_WIDTH} {32}
+  set_instance_parameter_value sys_axi_bridge_translator {M0_ADDR_WIDTH} {18}
   set_instance_parameter_value sys_axi_bridge_translator {M0_AXI_VERSION} {AXI4Lite}
   set_instance_parameter_value sys_axi_bridge_translator {M0_ID_WIDTH} {8}
   set_instance_parameter_value sys_axi_bridge_translator {M0_READ_ADDR_USER_WIDTH} {32}
