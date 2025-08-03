@@ -108,7 +108,7 @@ proc do_create_system_ps_wrapper {} {
   set_instance_parameter_value sys_hps {ENABLE_USER_ECC} {0}
   set_instance_parameter_value sys_hps {EXPORT_AFI_HALF_CLK} {0}
   set_instance_parameter_value sys_hps {EXTRA_SETTINGS} {}
-  set_instance_parameter_value sys_hps {F2SCLK_COLDRST_Enable} {0}
+  set_instance_parameter_value sys_hps {F2SCLK_COLDRST_Enable} {1}
   set_instance_parameter_value sys_hps {F2SCLK_DBGRST_Enable} {0}
   set_instance_parameter_value sys_hps {F2SCLK_PERIPHCLK_Enable} {0}
   set_instance_parameter_value sys_hps {F2SCLK_SDRAMCLK_Enable} {0}
@@ -818,6 +818,8 @@ proc do_create_system_ps_wrapper {} {
   set_interface_property sys_rstn EXPORT_OF sys_rst.in_reset
   add_interface sys_spi conduit end
   set_interface_property sys_spi EXPORT_OF spi_0.external
+  add_interface sys_hps_rstn reset sink
+  set_interface_property sys_hps_rstn EXPORT_OF sys_hps.f2h_cold_reset_req
 }
 
 create_system system_ps_wrapper
