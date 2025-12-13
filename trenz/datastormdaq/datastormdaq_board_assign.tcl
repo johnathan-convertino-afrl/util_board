@@ -385,8 +385,8 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hps_eth_rxd[3]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hps_eth_mdc
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hps_eth_mdio
 
-# set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hps_phy_int
-# set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hps_eth_rst
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hps_phy_int
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hps_eth_rst
 
 # qspi
 
@@ -540,4 +540,4 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hps_sw
 # set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to nc4
 # set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to nc5
 
-# qexec "$quartus(quartus_rootpath)/synthesis/submodules --quartus-project=$quartus(project)  --script=hps_sdram_p0_parameters.tcl"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
