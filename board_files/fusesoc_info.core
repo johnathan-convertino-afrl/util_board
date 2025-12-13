@@ -4,6 +4,10 @@ name: AFRL:utility:vivado_board_support_packages:1.0.0
 description: Various files that describe AMD(Xilinx) based fpga boards
 
 filesets:
+  src:
+    files:
+      - fix_warning.tcl : { file_type : tclSource }
+      
   arty-a7-35-files:
     files:
       - arty-a7-35/E.0/part0_pins.xml : {copyto : ./board_files/arty-a7-35/E.0/}
@@ -66,7 +70,7 @@ filesets:
 targets:
   default:
     default_tool: vivado
-    filesets: [arty-a7-35-files, cmod-s7-25-files, nexys-a7-100t-files, zedboard-files, rfsoc4x2-files, netfpga-1g-cml, genesys2-files]
+    filesets: [src, arty-a7-35-files, cmod-s7-25-files, nexys-a7-100t-files, zedboard-files, rfsoc4x2-files, netfpga-1g-cml, genesys2-files]
     tools:
       vivado:
         board_repo_paths: [./board_files/]
