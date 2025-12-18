@@ -45,3 +45,14 @@ set_property -dict { PACKAGE_PIN J21   IOSTANDARD LVCMOS33 } [get_ports { pmod_j
 set_property -dict { PACKAGE_PIN L19   IOSTANDARD LVCMOS33 } [get_ports { pmod_jb[6] }];
 set_property -dict { PACKAGE_PIN F18   IOSTANDARD LVCMOS33 } [get_ports { pmod_jb[7] }]; 
 
+set_property BITSTREAM.GENERAL.COMPRESS TRUE [current_design]
+set_property BITSTREAM.CONFIG.CONFIGRATE 3 [current_design]
+set_property BITSTREAM.CONFIG.BPI_PAGE_SIZE 1 [current_design]
+set_property BITSTREAM.CONFIG.BPI_SYNC_MODE DISABLE [current_design]
+set_property BITSTREAM.CONFIG.EXTMASTERCCLK_EN DISABLE [current_design]
+set_property BITSTREAM.CONFIG.BPI_1ST_READ_CYCLE 1 [current_design]
+set_property BITSTREAM.CONFIG.UNUSEDPIN Pullup [current_design]
+set_property BITSTREAM.CONFIG. BPI_SYNC_MODE TYPE1 [current_design]
+set_property CONFIG_MODE BPI16 [current_design]
+set_property CFGBVS GND [current_design]
+set_property CONFIG_VOLTAGE 1.8 [current_design]
