@@ -15,8 +15,8 @@
     <SysResetPolarity>ACTIVE HIGH</SysResetPolarity>
     <BankSelectionFlag>FALSE</BankSelectionFlag>
     <InternalVref>0</InternalVref>
-    <dci_hr_inouts_inputs>40 Ohms</dci_hr_inouts_inputs>
-    <dci_cascade>1</dci_cascade>
+    <dci_hr_inouts_inputs>50 Ohms</dci_hr_inouts_inputs>
+    <dci_cascade>0</dci_cascade>
     <Controller number="0" >
         <MemoryDevice>DDR3_SDRAM/SODIMMs/MT8JTF12864HZ-1G6</MemoryDevice>
         <TimePeriod>1250</TimePeriod>
