@@ -13,6 +13,7 @@ filesets:
       - AFRL:utility:vc707_board_base_ddr_cfg:1.0.0
       - AFRL:utility:xilinx_vc707_board_base_constr:1.0.0
       - AFRL:utility:tcl_helper_check:1.0.0
+      - AFRL:primitive:xilinx_series7:1.0.0
 
 targets:
   default: &default

@@ -12,6 +12,7 @@ filesets:
     depend:
       - AFRL:utility:xilinx_zcu111_board_base_constr:1.0.0
       - AFRL:utility:tcl_helper_check:1.0.0
+      - AFRL:primitive:xilinx_ultrascalep:1.0.0
 
 targets:
   default: &default

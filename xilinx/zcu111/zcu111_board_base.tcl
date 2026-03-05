@@ -2,7 +2,7 @@
 
 set_msg_config -id "Common 17-55" -new_severity WARNING
 
-reorder_files -fileset constrs_1 -front [get_files zrf8_zu28dr_board_base_constr.tcl]
+reorder_files -fileset constrs_1 -front [get_files zcu111_board_base_constr.tcl]
 
 #create a base axi offset for addresses in the system_base
 

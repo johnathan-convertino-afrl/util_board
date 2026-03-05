@@ -12,6 +12,7 @@ filesets:
   dep:
     depend:
       - AFRL:utility:tcl_helper_check:1.0.0
+      - AFRL:primitive:altera_arria10:1.0.0
 
 targets:
   default:

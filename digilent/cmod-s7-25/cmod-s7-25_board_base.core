@@ -12,6 +12,7 @@ filesets:
     depend:
       - AFRL:utility:digilent_cmod-s7-25_board_base_constr:1.0.0
       - AFRL:utility:tcl_helper_check:1.0.0
+      - AFRL:primitive:xilinx_series7:1.0.0
 
 targets:
   default: &default
