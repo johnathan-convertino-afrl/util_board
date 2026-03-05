@@ -1,0 +1,19 @@
+CAPI=2:
+
+name: AFRL:utility:xilinx_zcu208_board_base:1.0.0
+description: Files to help generate base xilinx zcu208 board items
+
+filesets:
+  src:
+    files:
+      - zcu208_board_base.tcl : {file_type: tclSource}
+    
+  dep:
+    depend:
+      - AFRL:utility:xilinx_zcu208_board_base_constr:1.0.0
+      - AFRL:utility:tcl_helper_check:1.0.0
+      - AFRL:primitive:xilinx_ultrascalep:1.0.0
+
+targets:
+  default: &default
+    filesets: [src, dep]
