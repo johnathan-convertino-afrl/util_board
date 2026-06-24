@@ -6,7 +6,7 @@ description: Files to help generate base vc707 board items
 filesets:
   src:
     files:
-      - vc707_board_base_constr.xdc : {file_type : xdc}
+      - vc707_board_base_constr.tcl : {file_type : SDC}
 
 targets:
   default: &default
