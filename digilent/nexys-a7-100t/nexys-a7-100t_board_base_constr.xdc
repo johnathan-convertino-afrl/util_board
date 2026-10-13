@@ -61,11 +61,8 @@ set_property -dict { PACKAGE_PIN U11   IOSTANDARD LVCMOS33 } [get_ports { slide_
 set_property -dict { PACKAGE_PIN V10   IOSTANDARD LVCMOS33 } [get_ports { slide_switches[15] }]
 
 ## uart
-set_property PACKAGE_PIN C4 [get_ports ftdi_tx]
-set_property IOSTANDARD LVCMOS33 [get_ports ftdi_tx]
-set_property SLEW FAST [get_ports ftdi_tx]
-set_property DRIVE 4 [get_ports ftdi_tx]
-set_property -dict {PACKAGE_PIN D4 IOSTANDARD LVCMOS33} [get_ports ftdi_rx]
+set_property -dict {PACKAGE_PIN C4 IOSTANDARD LVCMOS33} [get_ports ftdi_tx]
+set_property -dict {PACKAGE_PIN D4 IOSTANDARD LVCMOS33 SLEW SLOW DRIVE 8} [get_ports ftdi_rx]
 set_property -dict {PACKAGE_PIN D3 IOSTANDARD LVCMOS33} [get_ports ftdi_cts]
 set_property -dict {PACKAGE_PIN E5 IOSTANDARD LVCMOS33} [get_ports ftdi_rts]
 
